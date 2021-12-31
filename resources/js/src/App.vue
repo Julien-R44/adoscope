@@ -2,8 +2,8 @@
   <div class="bg-gray-50 font-sans text-base antialiased nuxt-text-default">
     <Header />
 
-    <div class="min-h-shell">
-      <div class="container mx-auto mt-8">
+    <div class="min-h-shell my-8">
+      <div class="container mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-[18em,1fr] gap-16">
           <EntriesTypeNav
             :entriesTypes="entriesTypes"

@@ -1,6 +1,6 @@
 <template>
-  <footer>
-    <div class="max-w-xl mx-auto border-t border-gray-300 text-sm">
+  <footer class="border-t border-gray-300 text-sm">
+    <div class="max-w-xl mx-auto">
       <div class="flex items-center justify-between h-24">
         <p>
           <a

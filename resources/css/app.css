@@ -31,3 +31,26 @@
   @apply dark:text-white;
 
 }
+
+.table {
+  th,
+  td {
+    padding: 0.75rem 1.25rem;
+  }
+
+  &:not(.table-borderless) {
+    td {
+      @apply border-t border-primary-100;
+    }
+  }
+
+  tr {
+    @apply transition-colors cursor-pointer hover:bg-gray-100;
+  }
+}
+
+th.table-fit,
+td.table-fit {
+    width: 1%;
+    white-space: nowrap;
+}
