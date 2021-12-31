@@ -1,6 +1,5 @@
 const { join } = require('path')
 const Encore = require('@symfony/webpack-encore')
-const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
 
 /*
 |--------------------------------------------------------------------------
@@ -10,8 +9,6 @@ const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
 if (!Encore.isRuntimeEnvironmentConfigured()) {
   Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev')
 }
-
-Encore.addPlugin(new WindiCSSWebpackPlugin())
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +45,7 @@ Encore.setPublicPath('/assets')
 | entrypoints.
 |
 */
-Encore.addEntry('app', './resources/js/app.js')
+Encore.addEntry('app', './resources/js/main.js')
 
 /*
 |--------------------------------------------------------------------------
@@ -172,7 +169,7 @@ Encore.configureDevServerOptions((options) => {
 | PostCSS or CSS.
 |
 */
-// Encore.enablePostCssLoader()
+Encore.enablePostCssLoader()
 // Encore.configureCssLoader(() => {})
 
 /*
@@ -184,11 +181,11 @@ Encore.configureDevServerOptions((options) => {
 | sure to install the required dependencies.
 |
 */
-// Encore.enableVueLoader(() => {}, {
-//   version: 3,
-//   runtimeCompilerBuild: false,
-//   useJsx: false
-// })
+Encore.enableVueLoader(() => {}, {
+  version: 3,
+  runtimeCompilerBuild: false,
+  useJsx: false,
+})
 
 /*
 |--------------------------------------------------------------------------
