@@ -33,7 +33,7 @@
 
       <td class="table-fit">
         <router-link :to="{ name: 'request-preview', params: { id: entry.id } }">
-          <span class="iconify" data-icon="ant-design:eye-outlined" data-width="25"></span>
+          <span class="iconify hover:text-primary cursor-pointer" data-icon="ant-design:eye-outlined" data-width="25"></span>
         </router-link>
       </td>
     </template>

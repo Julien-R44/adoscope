@@ -42,7 +42,7 @@
         <ul class="nav nav-pills">
           <li class="nav-item">
             <a
-              class="nav-link trete"
+              class="nav-link"
               :class="{ active: currentTab == 'payload' }"
               href="#"
               v-on:click.prevent="currentTab = 'payload'"
@@ -73,20 +73,11 @@
             >Response</a>
           </li>
         </ul>
-        <div class="code-bg p-4 mb-0 text-white">
-          <vue-json-pretty :show-length="true" :data="{
-            hey: {
-              test: {
-                test: true,
-              },
-              blabla: [
-                'hello'
-              ]
-            }
-          }" v-if="currentTab == 'payload'" />
-          <vue-json-pretty :show-length="true" :data="entry.content.headers" v-if="currentTab == 'headers'" />
-          <vue-json-pretty :show-length="true" :data="entry.content.session" v-if="currentTab == 'session'" />
-          <vue-json-pretty :show-length="true" :data="entry.content.response" v-if="currentTab == 'response'" />
+        <div class="p-4 mb-0 text-white">
+          <vue-json-pretty :data="entry.content.payload" v-if="currentTab == 'payload'" />
+          <vue-json-pretty :data="entry.content.headers" v-if="currentTab == 'headers'" />
+          <vue-json-pretty :data="entry.content.session" v-if="currentTab == 'session'" />
+          <vue-json-pretty :data="entry.content.response" v-if="currentTab == 'response'" />
         </div>
       </div>
 

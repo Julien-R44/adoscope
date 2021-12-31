@@ -20,15 +20,16 @@
       > {{ timeAgo(entry.created_at) }} </td>
 
       <td class="table-fit">
-        <span class="iconify" data-icon="ant-design:eye-outlined" data-width="25"></span>
-      </td>
+        <router-link :to="{ name: 'command-preview', params: { id: entry.id } }">
+          <span class="iconify hover:text-primary cursor-pointer" data-icon="ant-design:eye-outlined" data-width="25"></span>
+        </router-link>      </td>
     </template>
   </EntryTypeIndex>
 </template>
 
 <script setup>
-import EntryTypeIndex from '../EntryTypeIndex.vue';
-import RowsStyles from '../../helpers/RowsStyles';
+import EntryTypeIndex from '../../EntryTypeIndex.vue';
+import RowsStyles from '../../../helpers/RowsStyles';
 import { formatDistanceToNow, subDays } from 'date-fns'
 
 const timeAgo = (date) => {

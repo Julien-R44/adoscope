@@ -50,7 +50,7 @@ Api.fetchEntries(props.entryType).then(fetchedEntries => {
   }
 
   tr {
-    @apply transition-colors cursor-pointer;
+    @apply transition-colors;
   }
 
   th.table-fit,
