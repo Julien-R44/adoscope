@@ -1,9 +1,9 @@
 export const Api = {
-  basePath: 'http://127.0.0.1:333',
+  basePath: 'http://127.0.0.1:3333',
 
-  fetchEntries(resource) {
-    const entries = fetch(`${this.basePath}/telescope-api/${resource}`)
-
-    console.log(entries)
+  fetchEntries(entriesType) {
+    return fetch(`${this.basePath}/telescope-api/entries?type=${entriesType}`).then((response) =>
+      response.json()
+    )
   },
 }
