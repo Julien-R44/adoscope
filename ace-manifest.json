@@ -11,17 +11,24 @@
       "aliases": [],
       "flags": []
     },
-    "prune:entries": {
+    "adoscope:prune": {
       "settings": {
-        "loadApp": false,
+        "loadApp": true,
         "stayAlive": false
       },
       "commandPath": "./commands/PruneEntries",
-      "commandName": "prune:entries",
-      "description": "",
+      "commandName": "adoscope:prune",
+      "description": "Prune stale entries from the Adoscope database",
       "args": [],
       "aliases": [],
-      "flags": []
+      "flags": [
+        {
+          "name": "hours",
+          "propertyName": "hours",
+          "type": "number",
+          "description": "The number of hours to retain Adoscope data"
+        }
+      ]
     },
     "dump:rcfile": {
       "settings": {},
