@@ -6,18 +6,17 @@ export const entriesTypes = [
   {
     icon: 'carbon:network-admin-control',
     name: 'Requests',
-    indexScreenComponent: RequestIndex,
+    routeName: 'requests',
   },
   {
     icon: 'carbon:screen',
     name: 'Commands',
-    indexScreenComponent: CommandsIndex,
+    routeName: 'commands',
   },
-
   {
     icon: 'carbon:data-base',
     name: 'Queries',
-    indexScreenComponent: QueriesIndex,
+    routeName: 'queries',
   },
   {
     icon: 'carbon:event',

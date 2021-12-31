@@ -1,30 +1,28 @@
 <template>
   <div class="flex flex-col">
-    <div
-      @click="$emit('update:selectedEntryType', entryType)"
+    <router-link
       v-for="entryType in entriesTypes"
       :key="entryType.name"
       :class="classesBindings(entryType)"
+      :to="{ name: entryType.routeName }"
     >
       <span class="iconify" :data-icon="entryType.icon" data-width="25"></span>
       <span>{{ entryType.name }}</span>
-    </div>
+    </router-link>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+
 const props = defineProps({
-  selectedEntryType: {
-    type: [Object, null]
-  },
-  entriesTypes: {
-    type: Array
-  }
+  entriesTypes: { type: Array }
 })
 
-defineEmits(['update:selectedEntryType'])
+const route = useRoute()
 
-const isEntrySelected = (entryType) => props.selectedEntryType?.name === entryType.name
+const isEntrySelected = (entryType) => route.matched.some(({ name }) => name === entryType.routeName)
 const classesBindings = (entryType) => ({
   'nav-item': true,
   'nav-item--selected': isEntrySelected(entryType)
