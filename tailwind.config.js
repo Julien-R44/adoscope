@@ -2,14 +2,14 @@ module.exports = {
   mode: 'jit',
   purge: {
     enabled: true,
-    content: ['./resources/js/**/*.vue'],
+    content: ['./resources/js/**/*.vue', './resources/views/**/*.edge'],
   },
   darkMode: 'class',
   theme: {
     fontFamily: {
       sans: ['Inter', 'system-ui', 'sans-serif'],
     },
-    colors: {
+    colors: ({ colors }) => ({
       'primary': {
         50: '#ffffff',
         100: '#efecff',
@@ -32,10 +32,6 @@ module.exports = {
       'secondary-darkest': '#0b081f',
       'secondary-black': '#05040f',
       'white': '#fff',
-      'red': {
-        600: '#F33330',
-        700: '#CC2B28',
-      },
       'gray': {
         800: '#2C2B2A',
         500: '#72716D',
@@ -48,10 +44,11 @@ module.exports = {
         800: '#075E5A',
         700: '#09847E',
       },
-      'green': {
-        700: '#118C37',
-      },
-    },
+      'green': colors.green,
+      'yellow': colors.yellow,
+      'red': colors.red,
+      'blue': colors.blue,
+    }),
     boxShadow: {
       DEFAULT: '0px 2px 4px rgba(44, 43, 42, 0.1)',
       spread: '0px 12px 32px rgba(44, 43, 42, 0.16)',
