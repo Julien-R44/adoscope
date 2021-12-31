@@ -1,5 +1,5 @@
 <template>
-  <footer class="border-t border-gray-300 text-sm">
+  <footer class="border-t border-gray-300 dark:border-secondary text-sm">
     <div class="max-w-xl mx-auto">
       <div class="flex items-center justify-between h-24">
         <p>
