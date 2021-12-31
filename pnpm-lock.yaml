@@ -31,6 +31,7 @@ specifiers:
   uuid: ^8.3.2
   vue: ^3.2.14
   vue-loader: ^16.7.0
+  vue-router: '4'
   windicss: ^3.4.2
   windicss-webpack-plugin: ^1.6.2
   youch: ^3.0.0
@@ -50,6 +51,7 @@ dependencies:
   reflect-metadata: 0.1.13
   source-map-support: 0.5.21
   uuid: 8.3.2
+  vue-router: 4.0.12_vue@3.2.26
   windicss: 3.4.2
 
 devDependencies:
@@ -2170,6 +2172,10 @@ packages:
       '@vue/compiler-dom': 3.2.26
       '@vue/shared': 3.2.26
     dev: true
+
+  /@vue/devtools-api/6.0.0-beta.21.1:
+    resolution: {integrity: sha512-FqC4s3pm35qGVeXRGOjTsRzlkJjrBLriDS9YXbflHLsfA9FrcKzIyWnLXoNm+/7930E8rRakXuAc2QkC50swAw==}
+    dev: false
 
   /@vue/reactivity-transform/3.2.26:
     resolution: {integrity: sha512-XKMyuCmzNA7nvFlYhdKwD78rcnmPb7q46uoR00zkX6yZrUmcCQ5OikiwUEVbvNhL5hBJuvbSO95jB5zkUon+eQ==}
@@ -8143,6 +8149,15 @@ packages:
       hash-sum: 2.0.0
       loader-utils: 2.0.2
     dev: true
+
+  /vue-router/4.0.12_vue@3.2.26:
+    resolution: {integrity: sha512-CPXvfqe+mZLB1kBWssssTiWg4EQERyqJZes7USiqfW9B5N2x+nHlnsM1D3b5CaJ6qgCvMmYJnz+G0iWjNCvXrg==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@vue/devtools-api': 6.0.0-beta.21.1
+      vue: 3.2.26
+    dev: false
 
   /vue/3.2.26:
     resolution: {integrity: sha512-KD4lULmskL5cCsEkfhERVRIOEDrfEL9CwAsLYpzptOGjaGFNWo3BQ9g8MAb7RaIO71rmVOziZ/uEN/rHwcUIhg==}
