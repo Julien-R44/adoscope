@@ -33,8 +33,5 @@ const classesBindings = (entryType) => ({
 <style lang="postcss" scoped>
 .nav-item {
   @apply adoscope-card-bg adoscope-card-border flex space-x-4 py-3 mb-4 rounded-lg px-4 cursor-pointer;
-  &--selected {
-    @apply text-primary bg-gray-100;
-  }
 }
 </style>

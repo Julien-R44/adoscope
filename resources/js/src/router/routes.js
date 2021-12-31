@@ -1,12 +1,3 @@
-import RequestsIndex from '../components/screens/requests/RequestsIndex.vue'
-import RequestPreview from '../components/screens/requests/RequestPreview.vue'
-
-import CommandsIndex from '../components/screens/commands/CommandsIndex.vue'
-import CommandPreview from '../components/screens/commands/CommandPreview.vue'
-
-import QueriesIndex from '../components/screens/queries/QueriesIndex.vue'
-import QueryPreview from '../components/screens/queries/QueryPreview.vue'
-
 export default [
   { path: '/', redirect: '/requests' },
 
@@ -16,12 +7,12 @@ export default [
   {
     path: '/requests/:id',
     name: 'request-preview',
-    component: RequestPreview,
+    component: () => import('../components/screens/requests/RequestPreview.vue'),
   },
   {
     path: '/requests',
     name: 'requests',
-    component: RequestsIndex,
+    component: () => import('../components/screens/requests/RequestsIndex.vue'),
   },
 
   /**
@@ -30,12 +21,12 @@ export default [
   {
     path: '/commands/:id',
     name: 'command-preview',
-    component: CommandPreview,
+    component: () => import('../components/screens/commands/CommandPreview.vue'),
   },
   {
     path: '/commands',
     name: 'commands',
-    component: CommandsIndex,
+    component: () => import('../components/screens/commands/CommandsIndex.vue'),
   },
 
   /**
@@ -44,11 +35,25 @@ export default [
   {
     path: '/queries/:id',
     name: 'query-preview',
-    component: QueryPreview,
+    component: () => import('../components/screens/queries/QueryPreview.vue'),
   },
   {
     path: '/queries',
     name: 'queries',
-    component: QueriesIndex,
+    component: () => import('../components/screens/queries/QueriesIndex.vue'),
+  },
+
+  /**
+   * Events
+   */
+  {
+    path: '/events',
+    name: 'events',
+    component: () => import('../components/screens/events/EventsIndex.vue'),
+  },
+  {
+    path: '/events/:id',
+    name: 'event-preview',
+    component: () => import('../components/screens/events/EventPreview.vue'),
   },
 ]

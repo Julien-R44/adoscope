@@ -15,13 +15,6 @@
   }
 }
 
-.nav {
-  @apply flex space-x-4 bg-primary;
-  .nav-item {
-    @apply p-4;
-  }
-}
-
 /**
  * Vue-Json-Pretty custom styles
  */

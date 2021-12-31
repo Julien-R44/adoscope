@@ -30,7 +30,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import EntryPreview from '../../EntryPreview.vue';
 import { format } from 'sql-formatter'
 </script>
