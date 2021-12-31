@@ -1,4 +1,6 @@
-import RequestIndex from '../components/screens/RequestIndex.vue'
+import RequestIndex from '../components/screens/RequestsIndex.vue'
+import CommandsIndex from '../components/screens/CommandsIndex.vue'
+import QueriesIndex from '../components/screens/QueriesIndex.vue'
 
 export const entriesTypes = [
   {
@@ -9,11 +11,13 @@ export const entriesTypes = [
   {
     icon: 'carbon:screen',
     name: 'Commands',
+    indexScreenComponent: CommandsIndex,
   },
 
   {
     icon: 'carbon:data-base',
     name: 'Queries',
+    indexScreenComponent: QueriesIndex,
   },
   {
     icon: 'carbon:event',
