@@ -66,7 +66,7 @@
       </div>
     </div>
 
-    <slot v-if="!isLoading && entry" name="after-attributes-card" :entry="entry"></slot>
+    <slot v-if="ready && entry" name="after-attributes-card" :entry="entry"></slot>
   </div>
 </template>
 

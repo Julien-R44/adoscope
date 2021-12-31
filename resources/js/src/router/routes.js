@@ -4,7 +4,8 @@ import RequestPreview from '../components/screens/requests/RequestPreview.vue'
 import CommandsIndex from '../components/screens/commands/CommandsIndex.vue'
 import CommandPreview from '../components/screens/commands/CommandPreview.vue'
 
-import QueriesIndex from '../components/screens/QueriesIndex.vue'
+import QueriesIndex from '../components/screens/queries/QueriesIndex.vue'
+import QueryPreview from '../components/screens/queries/QueryPreview.vue'
 
 export default [
   { path: '/', redirect: '/requests' },
@@ -37,6 +38,14 @@ export default [
     component: CommandsIndex,
   },
 
+  /**
+   * Queries
+   */
+  {
+    path: '/queries/:id',
+    name: 'query-preview',
+    component: QueryPreview,
+  },
   {
     path: '/queries',
     name: 'queries',
