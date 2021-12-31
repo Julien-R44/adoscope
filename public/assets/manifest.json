@@ -1,5 +1,4 @@
 {
-  "assets/app.js": "http://localhost:8080/assets/app.js",
   "assets/app.css": "http://localhost:8080/assets/app.css",
-  "assets/resources_js_src_components_screens_RequestIndex_vue.js": "http://localhost:8080/assets/resources_js_src_components_screens_RequestIndex_vue.js"
+  "assets/app.js": "http://localhost:8080/assets/app.js"
 }

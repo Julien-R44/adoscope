@@ -20,6 +20,7 @@
     "eslint-plugin-adonis": "^2.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "pino-pretty": "^7.3.0",
+    "postcss": "^8.4.5",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.8",
@@ -32,13 +33,17 @@
   },
   "dependencies": {
     "@adonisjs/core": "^5.4.2",
+    "@adonisjs/lucid": "^16.3.2",
     "@adonisjs/repl": "^3.1.7",
     "@adonisjs/session": "^6.1.2",
     "@adonisjs/shield": "^7.0.7",
     "@adonisjs/view": "^6.1.1",
+    "luxon": "^2.2.0",
+    "pg": "^8.7.1",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21",
+    "uuid": "^8.3.2",
     "windicss": "^3.4.2"
   }
 }
