@@ -62,6 +62,10 @@ const QueryPropsFactory = (faker: Faker.FakerStatic) => ({
       `SELECT Name FROM Customers WHERE EXISTS
       (SELECT Item FROM Orders
       WHERE Customers.ID = Orders.ID AND Price < 50)`,
+      `SELECT eno, dno, salary,
+      DENSE_RANK() OVER (PARTITION BY dno ORDER BY salary) AS ranking
+      FROM employee;`,
+      `Select * from Employee A where rownum <=8 union select * from (Select * from Employee A order by rowid desc) where rownum <=8;`,
     ]),
     bindings: faker.lorem.words(),
     time: faker.datatype.number({ min: 0, max: 1000 }),
