@@ -50,6 +50,7 @@ module.exports = {
       yellow: colors.yellow,
       red: colors.red,
       blue: colors.blue,
+      black: colors.black,
     }),
     boxShadow: {
       DEFAULT: '0px 2px 4px rgba(44, 43, 42, 0.1)',

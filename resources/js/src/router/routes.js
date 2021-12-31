@@ -1,14 +1,15 @@
-import RequestsIndex from '../components/screens/RequestsIndex.vue'
+import RequestsIndex from '../components/screens/requests/RequestsIndex.vue'
+import RequestPreview from '../components/screens/requests/RequestPreview.vue'
 import CommandsIndex from '../components/screens/CommandsIndex.vue'
 import QueriesIndex from '../components/screens/QueriesIndex.vue'
 
 export default [
   { path: '/', redirect: '/requests' },
-  // {
-  //   path: '/requests/:id',
-  //   name: 'request-preview',
-  //   // component: RequestIndex,
-  // },
+  {
+    path: '/requests/:id',
+    name: 'request-preview',
+    component: RequestPreview,
+  },
 
   {
     path: '/requests',

@@ -1,7 +1,3 @@
-import RequestIndex from '../components/screens/RequestsIndex.vue'
-import CommandsIndex from '../components/screens/CommandsIndex.vue'
-import QueriesIndex from '../components/screens/QueriesIndex.vue'
-
 export const entriesTypes = [
   {
     icon: 'carbon:network-admin-control',

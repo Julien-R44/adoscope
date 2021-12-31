@@ -1,3 +1,4 @@
+import 'vue-json-pretty/lib/styles.css'
 import '../css/app.css'
 import { createApp } from 'vue'
 import App from './src/App.vue'
