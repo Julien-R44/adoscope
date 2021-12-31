@@ -74,6 +74,19 @@ const QueryPropsFactory = (faker: Faker.FakerStatic) => ({
 })
 
 /**
+ * Generate props for Event Entry Type
+ */
+const EventPropsFactory = (faker: Faker.FakerStatic) => ({
+  type: EntryType.EVENT,
+  content: {
+    name: faker.lorem.word(),
+    payload: { [faker.lorem.word()]: faker.lorem.words() },
+    listeners_count: faker.datatype.number({ min: 0, max: 10 }),
+  },
+  created_at: DateTime.fromJSDate(faker.date.recent(1)),
+})
+
+/**
  * Default props for generic Entry
  */
 const DefaultPropsFactory = (faker: Faker.FakerStatic) => ({
@@ -85,13 +98,14 @@ const DefaultPropsFactory = (faker: Faker.FakerStatic) => ({
 
 export const EntryFactory = Factory.define(Entry, ({ faker }) => {
   // const type = faker.random.arrayElement(Object.values(EntryType))
-  const type = EntryType.QUERY
+  const type = EntryType.EVENT
 
   const propsFactory =
     {
       [EntryType.REQUEST]: RequestPropsFactory,
       [EntryType.COMMAND]: CommandPropsFactory,
       [EntryType.QUERY]: QueryPropsFactory,
+      [EntryType.EVENT]: EventPropsFactory,
     }[type] || DefaultPropsFactory
 
   return propsFactory(faker)
