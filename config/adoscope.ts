@@ -1,7 +1,7 @@
 import { RouteMiddlewareHandler } from '@ioc:Adonis/Core/Route'
 import Env from '@ioc:Adonis/Core/Env'
 
-interface AdoscopeConfig {
+export interface AdoscopeConfig {
   domain?: string
   path: string
   storage: {

@@ -79,7 +79,7 @@ const QueryPropsFactory = (faker: Faker.FakerStatic) => ({
 const EventPropsFactory = (faker: Faker.FakerStatic) => ({
   type: EntryType.EVENT,
   content: {
-    name: faker.lorem.word(),
+    name: `${faker.lorem.word()}:${faker.lorem.word()}`,
     payload: { [faker.lorem.word()]: faker.lorem.words() },
     listeners_count: faker.datatype.number({ min: 0, max: 10 }),
   },
