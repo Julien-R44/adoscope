@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
   .adoscope-card-border {
     @apply border border-gray-200 dark:border-secondary-700 hover:border-primary focus:border-primary-800 dark:hover:border-primary-300 dark:focus:border-secondary focus:outline-none;
@@ -12,5 +11,23 @@
   }
   .adoscope-border {
     @apply border-gray-200 dark:border-secondary-700;
+  }
+}
+
+.nav {
+  @apply flex space-x-4 bg-primary;
+  .nav-item {
+    @apply p-4;
+  }
+}
+
+/**
+ * Vue-Json-Pretty custom styles
+ */
+.vjs-tree {
+  font-family: Consolas;
+  @apply dark:text-white text-black;
+  .vjs-tree__node:hover {
+    @apply bg-gray-50 dark:bg-secondary-700;
   }
 }

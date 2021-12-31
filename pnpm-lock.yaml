@@ -30,6 +30,7 @@ specifiers:
   typescript: ~4.5
   uuid: ^8.3.2
   vue: ^3.2.14
+  vue-json-pretty: ^2.0.6
   vue-loader: ^16.7.0
   vue-router: '4'
   windicss: ^3.4.2
@@ -51,6 +52,7 @@ dependencies:
   reflect-metadata: 0.1.13
   source-map-support: 0.5.21
   uuid: 8.3.2
+  vue-json-pretty: 2.0.6_vue@3.2.26
   vue-router: 4.0.12_vue@3.2.26
   windicss: 3.4.2
 
@@ -8139,6 +8141,15 @@ packages:
   /vary/1.1.2:
     resolution: {integrity: sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=}
     engines: {node: '>= 0.8'}
+
+  /vue-json-pretty/2.0.6_vue@3.2.26:
+    resolution: {integrity: sha512-aVdxw8ZRGR/Uj8GEaJ1/W2Ks/MdCfv5t2HRbbd+ICp3nL7msKRLN+1qOkSzaMvDygbDPxGhwUHBxZz8nxP+r3A==}
+    engines: {node: '>= 10.0.0', npm: '>= 5.0.0'}
+    peerDependencies:
+      vue: '>=3.0.0'
+    dependencies:
+      vue: 3.2.26
+    dev: false
 
   /vue-loader/16.8.3:
     resolution: {integrity: sha512-7vKN45IxsKxe5GcVCbc2qFU5aWzyiLrYJyUuMz4BQLKctCj/fmCa0w6fGiiQ2cLFetNcek1ppGJQDCup0c1hpA==}
