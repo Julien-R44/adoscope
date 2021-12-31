@@ -21,4 +21,12 @@ const router = createRouter({
 
 const app = createApp(App)
 app.use(router)
+
+import hljs from 'highlight.js/lib/core'
+import sql from 'highlight.js/lib/languages/sql'
+import hljsVuePlugin from '@highlightjs/vue-plugin'
+
+hljs.registerLanguage('sql', sql)
+app.use(hljsVuePlugin)
+
 app.mount('#app')
