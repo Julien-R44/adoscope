@@ -3,34 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" as="style">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+
   <title>Adoscope</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   @entryPointStyles('app')
   @entryPointScripts('app')
+
+  <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+
 </head>
 <body>
-
   <main>
-    <div>
-      <h1 class="title"> It Works! </h1>
-      <p class="subtitle text-red-500">
-        Congratulations, you have just created your first AdonisJS app.
-      </p>
-
-      <ul>
-        <li>
-          The route for this page is defined inside <code>start/routes.ts</code> file
-        </li>
-
-        <li>
-          You can update this page by editing <code>resources/views/welcome.edge</code> file
-        </li>
-
-        <li>
-          If you run into problems, you can reach us on <a href="https://discord.gg/vDcEjq6?">Discord</a> or the <a href="https://forum.adonisjs.com/">Forum</a>.
-        </li>
-      </ul>
-    </div>
+    <div id="app"></div>
   </main>
 </body>
 </html>
