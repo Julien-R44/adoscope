@@ -2,55 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-#webpack-dev-server-client-overlay {
-  display: none;
-}
 
-.nav-item {
-  @apply flex items-center space-x-2 py-2 my-1 rounded-lg px-2 cursor-pointer;
-  @apply transition-colors hover:bg-gray-100 hover:text-primary;
-}
-
-.nav-item--selected {
-  @apply text-primary bg-gray-100;
-}
-
-.nuxt-border {
-  @apply border-gray-200 dark:border-secondary-darker;
-
-}
-.nuxt-card-border {
-  @apply border border-gray-200 dark:border-secondary-darker hover:border-primary focus:border-primary-800 dark:hover:border-primary-300 dark:focus:border-secondary focus:outline-none;
-
-}
-.nuxt-card-bg {
-  @apply bg-white dark:bg-secondary-darkest;
-
-}
-.nuxt-text-default {
-  @apply dark:text-white;
-
-}
-
-.table {
-  th,
-  td {
-    padding: 0.75rem 1.25rem;
+@layer components {
+  .adoscope-card-border {
+    @apply border border-gray-200 dark:border-secondary-700 hover:border-primary focus:border-primary-800 dark:hover:border-primary-300 dark:focus:border-secondary focus:outline-none;
   }
-
-  &:not(.table-borderless) {
-    td {
-      @apply border-t border-primary-100;
-    }
+  .adoscope-card-bg {
+    @apply bg-white dark:bg-secondary-800;
   }
-
-  tr {
-    @apply transition-colors cursor-pointer hover:bg-gray-100;
+  .adoscope-border {
+    @apply border-gray-200 dark:border-secondary-700;
   }
-}
-
-th.table-fit,
-td.table-fit {
-    width: 1%;
-    white-space: nowrap;
 }

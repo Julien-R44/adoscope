@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-50 font-sans text-base antialiased nuxt-text-default">
+  <div class="font-sans text-base antialiased bg-gray-50 dark:bg-secondary-900 dark:text-white">
     <Header />
 
     <div class="min-h-shell my-8">

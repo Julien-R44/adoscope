@@ -26,7 +26,17 @@ defineEmits(['update:selectedEntryType'])
 
 const isEntrySelected = (entryType) => props.selectedEntryType?.name === entryType.name
 const classesBindings = (entryType) => ({
-  'nuxt-card-bg nuxt-card-border flex space-x-4 py-3 mb-4 rounded-lg px-4 cursor-pointer': true,
+  'nav-item': true,
   'nav-item--selected': isEntrySelected(entryType)
 })
 </script>
+
+
+<style lang="postcss" scoped>
+.nav-item {
+  @apply adoscope-card-bg flex space-x-4 py-3 mb-4 rounded-lg px-4 cursor-pointer;
+  &--selected {
+    @apply text-primary bg-gray-100;
+  }
+}
+</style>

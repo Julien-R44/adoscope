@@ -1,10 +1,10 @@
 <template>
-  <div class="flex-1 mt-1 nuxt-card-bg rounded-md shadow overflow-hidden">
+  <div class="flex-1 mt-1 adoscope-card-bg rounded-md shadow overflow-hidden">
     <div class="text-3xl font-bold bg-primary">
       <div class="py-4 px-6 text-white">{{ title }}</div>
     </div>
 
-    <table class="entries-table table">
+    <table class="entries-table">
       <thead>
         <slot name="table-header" />
       </thead>
@@ -42,8 +42,20 @@ Api.fetchEntries(props.entryType).then(fetchedEntries => {
 <style lang="postcss">
 .entries-table {
   @apply w-full text-left text-sm;
-  th {
-    @apply px-6 py-4 text-base font-thin;
+
+  th,
+  td {
+    padding: 0.75rem 1.25rem;
+    @apply border-t border-primary-100 dark:border-secondary;
+  }
+
+  tr {
+    @apply transition-colors cursor-pointer;
+  }
+
+  th.table-fit,
+  td.table-fit {
+    @apply whitespace-nowrap w-1;
   }
 }
 </style>
