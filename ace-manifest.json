@@ -1,5 +1,28 @@
 {
   "commands": {
+    "adoscope:clear": {
+      "settings": {
+        "loadApp": true
+      },
+      "commandPath": "./commands/ClearEntries",
+      "commandName": "adoscope:clear",
+      "description": "Clear all entries from Adoscope",
+      "args": [],
+      "aliases": [],
+      "flags": []
+    },
+    "prune:entries": {
+      "settings": {
+        "loadApp": false,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/PruneEntries",
+      "commandName": "prune:entries",
+      "description": "",
+      "args": [],
+      "aliases": [],
+      "flags": []
+    },
     "dump:rcfile": {
       "settings": {},
       "commandPath": "@adonisjs/core/build/commands/DumpRc",
