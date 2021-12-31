@@ -24,8 +24,6 @@ Route.get('/', async ({ view }) => {
   return view.render('welcome')
 })
 
-Route.get('/telescope', async ({ view }) => {
-  return view.render('telescope')
-})
-
+Route.get('/telescope', async ({ view }) => view.render('telescope'))
 Route.get('/telescope-api/entries', 'EntriesController.index')
+Route.get('/telescope-api/entries/:id', 'EntriesController.show')
