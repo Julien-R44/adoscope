@@ -50,4 +50,4 @@ node ace adoscope:prune --hours=48
 Adoscope is open-sourced software licensed under the [MIT license](https://github.com/julien-r44/adoscope/LICENSE.md).
 
 ## Thanks
-Thanks to Laravel and its awesome Ecosystem ! This project is literarily a clone of [Laravel Telescope](https://laravel.com/docs/8.x/telescope) ported to AdonisJS.
+Thanks to Laravel team and its awesome Ecosystem ! In case it wasn't obvious, [Laravel Telescope](https://laravel.com/docs/8.x/telescope) was a BIG inspiration for Adoscope.

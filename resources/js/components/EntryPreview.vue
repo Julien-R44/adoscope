@@ -5,21 +5,20 @@
         <div class="py-4 px-6 text-white">{{ title }}</div>
       </div>
 
-      <div class="table-responsive">
-        <table class="entries-table mb-0 card-bg-secondary table-borderless" v-if="ready">
-          <tbody>
-            <tr>
-              <td class="table-fit">Time</td>
-              <td>{{ localTime(entry.created_at) }} ({{ timeAgo(entry.created_at) }})</td>
-            </tr>
+      <table class="entries-table mb-0 card-bg-secondary table-borderless" v-if="ready">
+        <tbody>
+          <tr>
+            <td class="table-fit">Time</td>
+            <td>{{ localTime(entry.created_at) }} ({{ timeAgo(entry.created_at) }})</td>
+          </tr>
 
-            <tr>
-              <td class="table-fit">Hostname</td>
-              <td>{{ entry.hostname }}</td>
-            </tr>
+          <tr>
+            <td class="table-fit">Hostname</td>
+            <td>{{ entry.hostname }}</td>
+          </tr>
 
-            <slot name="table-parameters" :entry="entry"></slot>
-            <!--
+          <slot name="table-parameters" :entry="entry"></slot>
+          <!--
           <tr v-if="!entryPoint && job">
             <td class="table-fit font-weight-bold">Job</td>
             <td>
@@ -28,9 +27,9 @@
                 class="control-action"
               >View Job</router-link>
             </td>
-            </tr>-->
+          </tr>-->
 
-            <!-- <tr v-if="!entryPoint && request">
+          <!-- <tr v-if="!entryPoint && request">
             <td class="table-fit font-weight-bold">Request</td>
             <td>
               <router-link
@@ -38,9 +37,9 @@
                 class="control-action"
               >View Request</router-link>
             </td>
-            </tr>-->
+          </tr>-->
 
-            <!-- <tr v-if="!entryPoint && command">
+          <!-- <tr v-if="!entryPoint && command">
             <td class="table-fit font-weight-bold">Command</td>
             <td>
               <router-link
@@ -48,9 +47,9 @@
                 class="control-action"
               >View Command</router-link>
             </td>
-            </tr>-->
+          </tr>-->
 
-            <!-- <tr v-if="entry.tags.length">
+          <!-- <tr v-if="entry.tags.length">
             <td class="table-fit font-weight-bold">Tags</td>
             <td>
               <router-link
@@ -60,13 +59,15 @@
                 class="badge badge-info mr-1 font-weight-light"
               >{{ tag }}</router-link>
             </td>
-            </tr>-->
-          </tbody>
-        </table>
-      </div>
+          </tr>-->
+        </tbody>
+      </table>
     </div>
 
-    <div class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5 text-white" v-if="ready /*&& entry && entry.content.user && entry.content.user.id*/">
+    <div
+      class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5 text-white"
+      v-if="ready && entry && entry.content.user && entry.content.user.id"
+    >
       <div class="text-xl font-bold bg-primary">
         <div class="py-4 px-6 text-white">Authenticated User</div>
       </div>
@@ -75,21 +76,19 @@
         <tr>
           <td class="table-fit font-weight-bold">ID</td>
 
-          <td>{{4}}</td>
+          <td>{{ entry.content.user.id }}</td>
         </tr>
 
-        <tr v-if="/*entry.content.user.name*/true">
+        <tr v-if="entry.content.user.name">
           <td class="table-fit font-weight-bold align-middle">Name</td>
 
-          <td class="align-middle">
-            {{ 'Julien Ripouteau' }}
-          </td>
+          <td class="align-middle">{{ entry.content.user.name }}</td>
         </tr>
 
-        <tr v-if="/*entry.content.user.email*/true">
+        <tr v-if="entry.content.user.email">
           <td class="table-fit font-weight-bold">Email Address</td>
 
-          <td>{{ 'julien@ripouteau.com' }}</td>
+          <td>{{ entry.content.user.email }}</td>
         </tr>
       </table>
     </div>
