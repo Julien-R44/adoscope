@@ -144,13 +144,33 @@ const getMatchingPropsFactory = (type: EntryType) => {
   )
 }
 
-export const EntryFactory = Factory.define(Entry, ({ faker }) => {
-  // const type = faker.random.arrayElement(Object.values(EntryType))
-  const type = EntryType.QUERY
+/**
+ * Returns a batch either by generating a random uuid or by using another entry batch id
+ */
+const assignBatchId = async (faker: Faker.FakerStatic): Promise<string> => {
+  const mustGenerateNewUuid = faker.datatype.boolean()
+
+  if (mustGenerateNewUuid) {
+    return faker.datatype.uuid()
+  }
+
+  return Entry.query()
+    .orderByRaw('RANDOM()')
+    .first()
+    .then((res) => res?.batchId || faker.datatype.uuid())
+}
+
+export const EntryFactory = Factory.define(Entry, async ({ faker }) => {
+  const type = faker.random.arrayElement(Object.values(EntryType))
+  // const type = EntryType.QUERY
+
+  const batchId = await assignBatchId(faker)
+
   return {
     type,
     hostname: faker.lorem.word(),
     created_at: DateTime.fromJSDate(faker.date.recent(1)),
+    batchId,
     content: {
       ...DefaultContentPropsFactory(type, faker),
       ...getMatchingPropsFactory(type)(faker),
