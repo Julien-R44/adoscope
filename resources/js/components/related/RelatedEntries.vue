@@ -45,7 +45,6 @@
         </tbody>
       </table>
 
-      <!-- Related Logs -->
       <RelatedLogs v-show="currentTab == 'logs' && logs.length" :entries="logs" />
       <RelatedQueries v-show="currentTab == 'queries' && queries.length" :entries="queries" />
       <RelatedModels v-show="currentTab == 'models' && models.length" :entries="models" />
