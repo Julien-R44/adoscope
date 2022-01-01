@@ -5,10 +5,7 @@
         <div class="py-4 px-6 text-white">{{ title }}</div>
       </div>
 
-      <div
-        v-if="!ready"
-        class="flex flex-col justify-center my-12 items-center"
-      >
+      <div v-if="!ready" class="flex flex-col justify-center my-12 items-center">
         <span class="animate-spin iconify" data-icon="codicon:loading" data-width="40px"></span>
         <span class="mt-4">Scanning...</span>
       </div>
@@ -21,31 +18,45 @@
         <span class="mt-2">No entries found ! Try again later.</span>
       </div>
 
-      <transition-group tag="tbody" class="block" name="list">
-        <table class="entries-table" v-if="ready && entries.length > 0">
-          <thead>
-            <slot name="table-header" />
-          </thead>
+      <table class="entries-table" v-if="ready && entries.length > 0">
+        <thead>
+          <slot name="table-header" />
+        </thead>
+
+        <transition-group tag="tbody" name="list">
+          <tr v-show="hasNewEntries" key="newEntries">
+            <td colspan="100" class="text-center card-bg-secondary py-1">
+              <small>
+                <a
+                  href="#"
+                  v-on:click.prevent="loadNewEntries"
+                  v-show="!loadingNewEntries"
+                >Load New Entries</a>
+              </small>
+
+              <small v-show="loadingNewEntries">Loading...</small>
+            </td>
+          </tr>
 
           <tr v-for="entry in entries" :key="entry.id">
             <slot name="table-row" :entry="entry" />
           </tr>
 
-          <tr v-if="hasMoreEntries" key="olderEntries">
+          <tr v-show="hasMoreEntries" key="olderEntries">
             <td colspan="100" class="text-center py-1">
               <small>
                 <a
                   href="#"
                   v-on:click.prevent="loadOlderEntries"
-                  v-if="!loadingMoreEntries"
+                  v-show="!loadingMoreEntries"
                 >Load Older Entries</a>
               </small>
 
-              <small v-if="loadingMoreEntries">Loading...</small>
+              <small v-show="loadingMoreEntries">Loading...</small>
             </td>
           </tr>
-        </table>
-      </transition-group>
+        </transition-group>
+      </table>
     </div>
   </div>
 </template>
@@ -67,13 +78,16 @@ const props = defineProps({
 })
 
 const ENTRIES_PER_REQUEST = 50
+const NEW_ENTRIES_TIMER = 2500
 
 const entries = ref([])
 const ready = ref(false)
 const hasMoreEntries = ref(true)
+const hasNewEntries = ref(false)
 const loadingMoreEntries = ref(false)
+const loadingNewEntries = ref(false)
 let lastEntryIndex = ''
-
+let newEntriesTimeout = null
 
 const last = (array) => array[array.length - 1]
 
@@ -88,6 +102,7 @@ const loadEntries = (cb) => {
 loadEntries(fetchedEntries => {
   entries.value = fetchedEntries
   ready.value = true
+  checkNewEntries()
 })
 
 
@@ -98,4 +113,34 @@ const loadOlderEntries = () => {
     loadingMoreEntries.value = false;
   });
 }
+
+const loadNewEntries = () => {
+  hasMoreEntries.value = true
+  hasNewEntries.value = false
+  lastEntryIndex = ''
+  loadingNewEntries.value = true
+
+  clearTimeout(newEntriesTimeout)
+
+  loadEntries(fetchedEntries => {
+    entries.value = fetchedEntries
+    loadingNewEntries.value = false
+    checkNewEntries()
+  })
+}
+
+const checkNewEntries = () => {
+  newEntriesTimeout = setTimeout(() => {
+    Api.fetchEntries(props.entryType, 1).then(fetchedEntries => {
+      if (fetchedEntries.length && !entries.value.length) {
+        loadNewEntries()
+      } else if (fetchedEntries.length && fetchedEntries[0].id !== entries.value[0].id) {
+        hasNewEntries.value = true
+      } else {
+        checkNewEntries()
+      }
+    })
+  }, NEW_ENTRIES_TIMER)
+}
+
 </script>

@@ -7,9 +7,9 @@ export const Api = {
   /**
    * Fetch entries of given type
    */
-  fetchEntries(entriesType, entriesPerRequest, beforeIndex) {
+  fetchEntries(entriesType, limit, beforeIndex = '') {
     return fetch(
-      `${this.basePath}/telescope-api/entries?type=${entriesType}&limit=${entriesPerRequest}&before=${beforeIndex}`
+      `${this.basePath}/telescope-api/entries?type=${entriesType}&limit=${limit}&before=${beforeIndex}`
     ).then((response) => response.json())
   },
 
