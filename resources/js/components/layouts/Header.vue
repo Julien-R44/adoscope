@@ -7,7 +7,9 @@
         </div>
 
         <div class="flex items-center space-x-4">
-          <span class="iconify text-white" data-icon="carbon:logo-github" data-width="25"></span>
+          <a target="_blank" href="https://github.com/julien-r44/adoscope">
+            <span class="iconify text-white" data-icon="carbon:logo-github" data-width="25"></span>
+          </a>
 
           <div class="cursor-pointer" @click="changeDarkMode" v-show="darkMode == true">
             <span class="iconify text-white" data-icon="carbon:moon" data-width="25"></span>
