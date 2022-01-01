@@ -19,7 +19,7 @@ This package is **under development** and not ready to use. I'm currently workin
 **Currently only fake data are seeded**, and the application is currently not a package. It is a complete Adonis application but the whole thing will be exported in a package once the watchers are implemented.
 
 # Introduction
-Adoscope is an elegant debug assistant for the AdonisJS framework. Adoscope provides insight into the requests coming into your application, exceptions, log entries, database queries, mails, notifications, redis operations, and more. Adoscope makes a wonderful companion to your local Adonis development environment.
+Adoscope is basically a Laravel Telescope clone. Adoscope provides insight into the requests coming into your application, exceptions, log entries, database queries, mails, notifications, redis operations, and more. Adoscope makes a wonderful companion to your Adonis development environment.
 
 ![](https://i.imgur.com/tfqgKQJ.png)
 
