@@ -22,12 +22,12 @@ export const entriesTypes = [
   {
     icon: 'carbon:mail-all',
     name: 'Mails',
-    // routeName: 'mails',
+    routeName: 'mails',
   },
   {
     icon: 'carbon:edge-node-alt',
     name: 'Redis',
-    // routeName: 'redis',
+    routeName: 'redis',
   },
   {
     icon: 'carbon:layers',
