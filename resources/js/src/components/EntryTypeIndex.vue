@@ -4,7 +4,15 @@
       <div class="py-4 px-6 text-white">{{ title }}</div>
     </div>
 
-    <table class="entries-table">
+    <div
+      v-if="ready && entries.length === 0"
+      class="flex flex-col justify-center mt-12 items-center"
+    >
+      <span class="iconify text-primary" data-icon="ion:telescope-sharp" data-width="100px"></span>
+      <span class="mt-2">No entries found ! Try again later.</span>
+    </div>
+
+    <table class="entries-table" v-if="ready && entries.length > 0">
       <thead>
         <slot name="table-header" />
       </thead>
@@ -33,9 +41,11 @@ const props = defineProps({
 })
 
 const entries = ref([])
+const ready = ref(false)
 
 Api.fetchEntries(props.entryType).then(fetchedEntries => {
   entries.value = fetchedEntries
+  ready.value = true
 })
 </script>
 
