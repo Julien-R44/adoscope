@@ -12,11 +12,11 @@ export default class ClearEntries extends BaseCommand {
   public async run() {
     const { default: Database } = await import('@ioc:Adonis/Lucid/Database')
     const { default: Config } = await import('@ioc:Adonis/Core/Config')
-    const adoscopeConfig = Config.get('adoscope') as AdoscopeConfig
+    const adoscope = Config.get('adoscope') as AdoscopeConfig
 
     const spinner = this.logger.await('Clearing entries from database...')
 
-    await Database.connection(adoscopeConfig.storage.databaseConnection).truncate(
+    await Database.connection(adoscope.storage.databaseConnection).truncate(
       'adoscope_entries',
       true
     )

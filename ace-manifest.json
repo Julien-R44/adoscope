@@ -13,8 +13,7 @@
     },
     "adoscope:prune": {
       "settings": {
-        "loadApp": true,
-        "stayAlive": false
+        "loadApp": true
       },
       "commandPath": "./commands/PruneEntries",
       "commandName": "adoscope:prune",

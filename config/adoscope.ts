@@ -17,7 +17,7 @@ export interface AdoscopeConfig {
   // TODO: Add support for enabling specific watchers
 }
 
-export const adoscope: AdoscopeConfig = {
+const adoscope: AdoscopeConfig = {
   /*
   |--------------------------------------------------------------------------
   | Adoscope Path
@@ -28,7 +28,7 @@ export const adoscope: AdoscopeConfig = {
   | affect the paths of its internal API that aren't exposed to users.
   |
   */
-  path: Env.get('ADOSCOPE_PATH', 'telescope'),
+  path: Env.get('ADOSCOPE_PATH', 'telescoddpe'),
 
   /*
   |--------------------------------------------------------------------------
@@ -90,3 +90,5 @@ export const adoscope: AdoscopeConfig = {
     //
   ],
 }
+
+export default adoscope
