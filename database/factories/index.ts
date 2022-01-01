@@ -24,7 +24,6 @@ const RequestPropsFactory = (faker: Faker.FakerStatic) => ({
     response_status: faker.datatype.number({ min: 200, max: 500 }),
     duration: faker.datatype.number({ min: 0, max: 1000 }),
   },
-  created_at: DateTime.fromJSDate(faker.date.recent(1)),
 })
 
 /**
@@ -44,7 +43,6 @@ const CommandPropsFactory = (faker: Faker.FakerStatic) => ({
       [faker.lorem.word()]: faker.datatype.boolean(),
     },
   },
-  created_at: DateTime.fromJSDate(faker.date.recent(1)),
 })
 
 /**
@@ -70,7 +68,6 @@ const QueryPropsFactory = (faker: Faker.FakerStatic) => ({
     bindings: faker.lorem.words(),
     time: faker.datatype.number({ min: 0, max: 1000 }),
   },
-  created_at: DateTime.fromJSDate(faker.date.recent(1)),
 })
 
 /**
@@ -83,7 +80,6 @@ const EventPropsFactory = (faker: Faker.FakerStatic) => ({
     payload: { [faker.lorem.word()]: faker.lorem.words() },
     listeners_count: faker.datatype.number({ min: 0, max: 10 }),
   },
-  created_at: DateTime.fromJSDate(faker.date.recent(1)),
 })
 
 /**
@@ -97,7 +93,6 @@ const RedisPropsFactory = (faker: Faker.FakerStatic) => ({
       ` ${faker.lorem.word().toUpperCase()}`,
     time: faker.datatype.number({ min: 0, max: 1000 }),
   },
-  created_at: DateTime.fromJSDate(faker.date.recent(1)),
 })
 
 /**
@@ -122,7 +117,22 @@ const ExceptionPropsFactory = (faker: Faker.FakerStatic) => ({
     location: faker.system.filePath(),
     line: faker.datatype.number({ min: 0, max: 1000 }),
   },
-  created_at: DateTime.fromJSDate(faker.date.recent(1)),
+})
+
+/**
+ * Generate Props For Model entry type
+ */
+const ModelPropsFactory = (faker: Faker.FakerStatic) => ({
+  type: EntryType.MODEL,
+  content: {
+    model_name: faker.lorem.word(),
+    model_id: faker.datatype.number({ min: 0, max: 1000 }),
+    action: faker.random.arrayElement(['created', 'updated', 'deleted', 'retrieved']),
+    changes: {
+      [faker.lorem.word()]: faker.lorem.words(),
+      [faker.lorem.word()]: faker.lorem.words(),
+    },
+  },
 })
 
 /**
@@ -147,11 +157,17 @@ const getMatchingPropsFactory = (type: EntryType) => {
       [EntryType.EVENT]: EventPropsFactory,
       [EntryType.REDIS]: RedisPropsFactory,
       [EntryType.EXCEPTION]: ExceptionPropsFactory,
+      [EntryType.MODEL]: ModelPropsFactory,
     }[type] || RequestPropsFactory
   )
 }
 
 export const EntryFactory = Factory.define(Entry, ({ faker }) => {
   const type = faker.random.arrayElement(Object.values(EntryType))
-  return getMatchingPropsFactory(type)(faker)
+  // const type = EntryType.REQUEST
+  return {
+    hostname: faker.internet.domainName().toUpperCase(),
+    ...getMatchingPropsFactory(type)(faker),
+    created_at: DateTime.fromJSDate(faker.date.recent(1)),
+  }
 }).build()

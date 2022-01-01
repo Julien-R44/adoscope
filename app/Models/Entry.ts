@@ -14,6 +14,9 @@ export default class Entry extends BaseModel {
   public sequenceId: number
 
   @column()
+  public hostname: string
+
+  @column()
   public type: EntryType
 
   @column()

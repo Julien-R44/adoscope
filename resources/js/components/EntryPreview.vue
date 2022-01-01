@@ -9,14 +9,14 @@
         <table class="entries-table mb-0 card-bg-secondary table-borderless" v-if="ready">
           <tbody>
             <tr>
-              <td class="table-fit font-weight-bold">Time</td>
+              <td class="table-fit">Time</td>
               <td>{{ localTime(entry.created_at) }} ({{ timeAgo(entry.created_at) }})</td>
             </tr>
 
-            <!-- <tr>
-            <td class="table-fit font-weight-bold">Hostname</td>
-            <td>{{ entry.content.hostname }}</td>
-            </tr>-->
+            <tr>
+              <td class="table-fit">Hostname</td>
+              <td>{{ entry.hostname }}</td>
+            </tr>
 
             <slot name="table-parameters" :entry="entry"></slot>
             <!--

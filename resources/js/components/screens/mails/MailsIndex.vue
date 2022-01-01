@@ -1,5 +1,5 @@
 <template>
-  <EntryTypeIndex title="Events" entry-type="event">
+  <EntryTypeIndex title="Mails" entry-type="mail">
     <template #table-header>
       <th scope="col">Name</th>
       <th scope="col">Listeners</th>
@@ -13,7 +13,7 @@
       <td class="table-fit" :title="entry.created_at">{{ timeAgo(entry.created_at) }}</td>
 
       <td class="table-fit">
-        <router-link :to="{ name: 'event-preview', params: { id: entry.id } }">
+        <router-link :to="{ name: 'mail-preview', params: { id: entry.id } }">
           <span
             class="iconify hover:text-primary cursor-pointer"
             data-icon="ant-design:eye-outlined"
