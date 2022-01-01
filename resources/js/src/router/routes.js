@@ -56,4 +56,32 @@ export default [
     name: 'event-preview',
     component: () => import('../components/screens/events/EventPreview.vue'),
   },
+
+  /**
+   * redis
+   */
+  {
+    path: '/mails',
+    name: 'mails',
+    component: () => import('../components/screens/mails/MailsIndex.vue'),
+  },
+  {
+    path: '/mails/:id',
+    name: 'mail-preview',
+    component: () => import('../components/screens/mails/MailPreview.vue'),
+  },
+
+  /**
+   * Redis
+   */
+  {
+    path: '/redis',
+    name: 'redis',
+    component: () => import('../components/screens/redis/RedisIndex.vue'),
+  },
+  {
+    path: '/redis/:id',
+    name: 'redis-preview',
+    component: () => import('../components/screens/redis/RedisPreview.vue'),
+  },
 ]

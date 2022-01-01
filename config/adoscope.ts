@@ -28,7 +28,7 @@ const adoscope: AdoscopeConfig = {
   | affect the paths of its internal API that aren't exposed to users.
   |
   */
-  path: Env.get('ADOSCOPE_PATH', 'telescoddpe'),
+  path: Env.get('ADOSCOPE_PATH', 'telescope'),
 
   /*
   |--------------------------------------------------------------------------

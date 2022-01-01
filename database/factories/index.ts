@@ -87,6 +87,45 @@ const EventPropsFactory = (faker: Faker.FakerStatic) => ({
 })
 
 /**
+ * Generate props for Redis Entry Type
+ */
+const RedisPropsFactory = (faker: Faker.FakerStatic) => ({
+  type: EntryType.REDIS,
+  content: {
+    command:
+      faker.random.arrayElement(['GET', 'SET', 'DEL', 'EXISTS']) +
+      ` ${faker.lorem.word().toUpperCase()}`,
+    time: faker.datatype.number({ min: 0, max: 1000 }),
+  },
+  created_at: DateTime.fromJSDate(faker.date.recent(1)),
+})
+
+/**
+ * Generate Props For Exception Entry type
+ */
+const ExceptionPropsFactory = (faker: Faker.FakerStatic) => ({
+  type: EntryType.EXCEPTION,
+  content: {
+    class: faker.lorem.word(),
+    message: faker.lorem.words(),
+    stack: `error: select * from "adoscope_entries" where "id" = $1 limit $2 - invalid input syntax for type uuid: "454"
+    at Parser.parseErrorMessage (adoscope/node_modules/.pnpm/pg-protocol@1.5.0/node_modules/pg-protocol/src/parser.ts:369:69)
+    at Parser.handlePacket (adoscope/node_modules/.pnpm/pg-protocol@1.5.0/node_modules/pg-protocol/src/parser.ts:188:21)
+    at Parser.parse (adoscope/node_modules/.pnpm/pg-protocol@1.5.0/node_modules/pg-protocol/src/parser.ts:103:30)
+    at Socket.<anonymous> (adoscope/node_modules/.pnpm/pg-protocol@1.5.0/node_modules/pg-protocol/src/index.ts:7:48)
+    at Socket.emit (node:events:390:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    at readableAddChunk (node:internal/streams/readable:289:9)
+    at Socket.Readable.push (node:internal/streams/readable:228:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:199:23)
+    `,
+    location: faker.system.filePath(),
+    line: faker.datatype.number({ min: 0, max: 1000 }),
+  },
+  created_at: DateTime.fromJSDate(faker.date.recent(1)),
+})
+
+/**
  * Default props for generic Entry
  */
 const DefaultPropsFactory = (faker: Faker.FakerStatic) => ({
@@ -96,17 +135,23 @@ const DefaultPropsFactory = (faker: Faker.FakerStatic) => ({
   },
 })
 
-export const EntryFactory = Factory.define(Entry, ({ faker }) => {
-  // const type = faker.random.arrayElement(Object.values(EntryType))
-  const type = EntryType.EVENT
-
-  const propsFactory =
+/**
+ * Get matching props factory for given entry type
+ */
+const getMatchingPropsFactory = (type: EntryType) => {
+  return (
     {
       [EntryType.REQUEST]: RequestPropsFactory,
       [EntryType.COMMAND]: CommandPropsFactory,
       [EntryType.QUERY]: QueryPropsFactory,
       [EntryType.EVENT]: EventPropsFactory,
-    }[type] || DefaultPropsFactory
+      [EntryType.REDIS]: RedisPropsFactory,
+      [EntryType.EXCEPTION]: ExceptionPropsFactory,
+    }[type] || RequestPropsFactory
+  )
+}
 
-  return propsFactory(faker)
+export const EntryFactory = Factory.define(Entry, ({ faker }) => {
+  const type = faker.random.arrayElement(Object.values(EntryType))
+  return getMatchingPropsFactory(type)(faker)
 }).build()
