@@ -1,5 +1,5 @@
 <div align="center">
-  <!-- <img src="https://i.imgur.com/GQLZIO7.png" width="250px" />   -->
+  <img src="https://i.imgur.com/UfEF0GR.png" width="450px" />  
   <br/>
   <h3>Adoscope</h3>
   <p>🔭 An elegant debug assistant for AdonisJS Framework.</p>
@@ -13,23 +13,21 @@
   <br/>
 </div>
 
-## 🚧 Warning
+## 🚧 Warning: WORK-IN-PROGRESS
 This package is under development and not ready to use. I'm currently working with the core team to bring this project to life. Most of the work has been done on Adoscope, the front-end of the application is ready, models too, we only need to develop the watchers that will retrieve the real events from Adonis. Currently only fake data are seeded.
+Package 
 
 # Introduction
 Adoscope is an elegant debug assistant for the AdonisJS framework. Adoscope provides insight into the requests coming into your application, exceptions, log entries, database queries, mails, notifications, redis operations, and more. Adoscope makes a wonderful companion to your local Adonis development environment.
 
-![](https://i.imgur.com/XQBQoKb.png)
+![](https://i.imgur.com/tfqgKQJ.png)
 
 ## Prequisites
 - You must have a database to store Adoscope entries. ( [Adonis Sail](http://github.com/Julien-R44/adonis-sail) allows you to create your database in 2 minutes! )
 - Therefore, you must have `@adonisjs/lucid` installed and configured.
 
 ## Installation
-```
-npm install adoscope
-node ace configure adoscope
-```
+// TODO
 
 ### Configuration
 After installing Adoscope, you will find the main configuration file in `app/adoscope.ts`. Each of the configuration options has a description of its purpose.
@@ -43,8 +41,10 @@ node ace adoscope:prune --hours=48
 ```
 
 ### Authorization
+//TODO
 
 ## Available Watchers
+// TODO
 
 ## License
 Adoscope is open-sourced software licensed under the [MIT license](https://github.com/julien-r44/adoscope/LICENSE.md).
