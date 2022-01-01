@@ -11,7 +11,13 @@ export default class EntriesController {
       .orderBy('sequence_id', 'desc')
   }
 
-  public async show({ params, request }: HttpContextContract) {
-    return Entry.findOrFail(params.id)
+  public async show({ params }: HttpContextContract) {
+    const entry = await Entry.findOrFail(params.id)
+    return {
+      entry,
+      batch: await Entry.query()
+        .where('batch_id', '=', entry.batchId)
+        .andWhere('id', '!=', entry.id),
+    }
   }
 }

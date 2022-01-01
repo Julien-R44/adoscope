@@ -5,11 +5,11 @@ export default class CreateAdoscopeTables extends BaseSchema {
     this.schema.createTable('adoscope_entries', (table) => {
       table.bigIncrements('sequence_id')
       table.uuid('id').notNullable().unique()
+      table.uuid('batch_id').notNullable().index()
       table.string('hostname').notNullable()
-
       table.string('type', 20).notNullable()
       table.json('content').notNullable()
-      table.timestamp('created_at', { useTz: true })
+      table.timestamp('created_at', { useTz: true }).index()
     })
   }
 

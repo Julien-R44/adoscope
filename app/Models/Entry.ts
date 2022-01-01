@@ -8,13 +8,16 @@ export default class Entry extends BaseModel {
   public static selfAssignPrimaryKey = true
 
   @column({ isPrimary: true })
-  public id: number
+  public id: string
 
   @column()
   public sequenceId: number
 
   @column()
   public hostname: string
+
+  @column()
+  public batchId: string
 
   @column()
   public type: EntryType
