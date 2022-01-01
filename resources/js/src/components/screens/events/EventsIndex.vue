@@ -13,7 +13,7 @@
       <td class="table-fit" :title="entry.created_at">{{ timeAgo(entry.created_at) }}</td>
 
       <td class="table-fit">
-        <router-link :to="{ name: 'query-preview', params: { id: entry.id } }">
+        <router-link :to="{ name: 'event-preview', params: { id: entry.id } }">
           <span
             class="iconify hover:text-primary cursor-pointer"
             data-icon="ant-design:eye-outlined"
