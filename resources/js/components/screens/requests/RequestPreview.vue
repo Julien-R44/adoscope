@@ -37,7 +37,7 @@
       </tr>
     </template>
 
-    <template #after-attributes-card="{ entry }">
+    <template #after-attributes-card="{ entry, batch }">
       <div class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5 text-white">
         <ul class="nav nav-pills">
           <li class="nav-item">
@@ -81,8 +81,7 @@
         </div>
       </div>
 
-      <!-- Additional Information -->
-      <!-- <related-entries :entry="entry" :batch="batch"></related-entries> -->
+      <related-entries :entry="entry" :batch="batch"></related-entries>
     </template>
   </EntryPreview>
 </template>
@@ -91,6 +90,7 @@
 import { ref } from 'vue';
 import EntryPreview from '@/components/EntryPreview.vue';
 import VueJsonPretty from 'vue-json-pretty'
+import RelatedEntries from '@/components/RelatedEntries.vue';
 
 const currentTab = ref('payload');
 </script>

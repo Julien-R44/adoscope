@@ -65,7 +65,7 @@
     </div>
 
     <div
-      class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5 text-white"
+      class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5"
       v-if="ready && entry && entry.content.user && entry.content.user.id"
     >
       <div class="text-xl font-bold bg-primary">
@@ -93,7 +93,7 @@
       </table>
     </div>
 
-    <slot v-if="ready && entry" name="after-attributes-card" :entry="entry"></slot>
+    <slot v-if="ready && entry" name="after-attributes-card" :entry="entry" :batch="batch"></slot>
   </div>
 </template>
 
@@ -115,9 +115,11 @@ const props = defineProps({
 
 const ready = ref(false)
 const entry = ref({})
+const batch = ref({})
 
 Api.fetchEntry(props.id).then(response => {
-  entry.value = response
+  entry.value = response.entry
+  batch.value = response.batch
   ready.value = true
 })
 
