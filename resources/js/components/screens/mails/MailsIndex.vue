@@ -27,8 +27,5 @@
 
 <script setup>
 import EntryTypeIndex from '@/components/EntryTypeIndex.vue';
-import RowsStyles from '@/helpers/RowsStyles';
-import { formatDistanceToNow, subDays } from 'date-fns'
-
-const timeAgo = (date) => formatDistanceToNow(new Date(date), { addSuffix: false, includeSeconds: true })
+import { timeAgo } from '@/helpers/helpers';
 </script>

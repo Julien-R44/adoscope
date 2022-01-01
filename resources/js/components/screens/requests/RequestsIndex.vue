@@ -12,7 +12,7 @@
     <template #table-row="{ entry }">
       <td class="table-fit pr-0 pl-6">
         <Badge
-          :type="RowsStyles.methods.requestMethodClass(entry.content.method)"
+          :type="requestMethodClass(entry.content.method)"
         >{{ entry.content.method }}</Badge>
       </td>
 
@@ -20,7 +20,7 @@
 
       <td class="table-fit">
         <Badge
-          :type="RowsStyles.methods.requestStatusClass(entry.content.response_status)"
+          :type="requestStatusClass(entry.content.response_status)"
         >{{ entry.content.response_status }}</Badge>
       </td>
 
@@ -41,12 +41,7 @@
 </template>
 
 <script setup>
-import EntryTypeIndex from '../../EntryTypeIndex.vue';
-import RowsStyles from '../../../helpers/RowsStyles';
-import Badge from '../../../components/Badge.vue';
-import { formatDistanceToNow, subDays } from 'date-fns'
-
-const timeAgo = (date) => {
-  return formatDistanceToNow(new Date(date), { addSuffix: false, includeSeconds: true })
-}
+import EntryTypeIndex from '@/components/EntryTypeIndex.vue';
+import { requestStatusClass, requestMethodClass, timeAgo } from '@/helpers/helpers';
+import Badge from '@/components/Badge.vue';
 </script>

@@ -6,6 +6,14 @@
       </div>
 
       <div
+        v-if="!ready"
+        class="flex flex-col justify-center my-12 items-center"
+      >
+        <span class="animate-spin iconify" data-icon="codicon:loading" data-width="40px"></span>
+        <span class="mt-4">Scanning...</span>
+      </div>
+
+      <div
         v-if="ready && entries.length === 0"
         class="flex flex-col justify-center my-12 items-center"
       >
