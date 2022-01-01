@@ -16,7 +16,7 @@
 
     <template #after-attributes-card="{ entry }">
       <div
-        class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5 text-white"
+        class="adoscope-card-bg rounded-md overflow-hidden shadow my-8 text-white"
         v-if="entry.content.changes && entry.content.action != 'deleted'"
       >
         <div class="text-xl font-bold bg-primary">

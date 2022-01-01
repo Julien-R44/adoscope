@@ -1,5 +1,5 @@
 <template>
-  <div class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5" v-if="hasRelatedEntries">
+  <div class="adoscope-card-bg rounded-md overflow-hidden shadow my-8" v-if="hasRelatedEntries">
     <ul class="nav nav-pills text-white">
       <li class="nav-item" v-for="tab in separateTabs">
         <a

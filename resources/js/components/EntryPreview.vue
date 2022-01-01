@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="mt-1 adoscope-card-bg rounded-md shadow overflow-hidden">
+    <div class="mt-1 mb-8 adoscope-card-bg rounded-md shadow overflow-hidden">
       <div class="text-3xl font-bold bg-primary">
         <div class="py-4 px-6 text-white">{{ title }}</div>
       </div>
@@ -43,7 +43,7 @@
     </div>
 
     <div
-      class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5"
+      class="adoscope-card-bg rounded-md overflow-hidden shadow my-8"
       v-if="ready && entry && entry.content.user && entry.content.user.id"
     >
       <div class="text-xl font-bold bg-primary">

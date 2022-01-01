@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex-1 mt-1 adoscope-card-bg rounded-md shadow overflow-hidden">
+    <div class="flex-1 mt-1 mb-8 adoscope-card-bg rounded-md shadow overflow-hidden">
       <div class="text-3xl font-bold bg-primary">
         <div class="py-4 px-6 text-white">{{ title }}</div>
       </div>

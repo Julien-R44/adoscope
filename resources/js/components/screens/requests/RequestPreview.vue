@@ -38,7 +38,7 @@
     </template>
 
     <template #after-attributes-card="{ entry, batch }">
-      <div class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5 text-white">
+      <div class="adoscope-card-bg rounded-md overflow-hidden shadow my-8 text-white">
         <ul class="nav nav-pills">
           <li class="nav-item">
             <a
