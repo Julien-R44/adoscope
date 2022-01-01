@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import EntryPreview from '../../EntryPreview.vue';
+import EntryPreview from '@/components/EntryPreview.vue';
 import { format } from 'sql-formatter'
 import VueJsonPretty from 'vue-json-pretty'
 </script>

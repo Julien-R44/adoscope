@@ -43,7 +43,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import EntryPreview from '../../EntryPreview.vue';
+import EntryPreview from '@/components/EntryPreview.vue';
 import VueJsonPretty from 'vue-json-pretty'
 
 const currentTab = ref('arguments');

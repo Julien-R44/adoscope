@@ -187,6 +187,10 @@ Encore.enableVueLoader(() => {}, {
   useJsx: false,
 })
 
+Encore.addAliases({
+  '@': join(__dirname, './resources/js'),
+})
+
 /*
 |--------------------------------------------------------------------------
 | Configure logging

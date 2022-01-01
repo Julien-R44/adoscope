@@ -1,8 +1,8 @@
 import 'vue-json-pretty/lib/styles.css'
 import '../css/app.css'
 import { createApp } from 'vue'
-import App from './src/App.vue'
-import routes from './src/router/routes'
+import App from '@/App.vue'
+import routes from '@/router/routes'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 if (

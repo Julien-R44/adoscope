@@ -45,7 +45,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue'
-import { Api } from '../services/Api'
+import { Api } from '@/services/Api'
 
 const props = defineProps({
   title: {

@@ -22,6 +22,9 @@
   }
 }
 
+/**
+  * Tables stylings
+  */
 .entries-table {
   @apply w-full text-left text-sm;
 

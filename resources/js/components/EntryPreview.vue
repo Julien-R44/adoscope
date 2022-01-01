@@ -73,7 +73,7 @@
 <script setup>
 import { ref } from 'vue'
 import { formatDistanceToNow, subDays } from 'date-fns'
-import { Api } from '../services/Api'
+import { Api } from '@/services/Api'
 
 const props = defineProps({
   title: {
@@ -91,7 +91,6 @@ const entry = ref({})
 
 const timeAgo = (date) => formatDistanceToNow(new Date(date), { addSuffix: false, includeSeconds: true })
 const localTime = (date) => new Date(date).toLocaleString()
-
 
 Api.fetchEntry(props.id).then(response => {
   entry.value = response
