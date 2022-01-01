@@ -191,6 +191,10 @@ Encore.addAliases({
   '@': join(__dirname, './resources/js'),
 })
 
+Encore.configureDefinePlugin((options) => {
+  options['process.env'].version = JSON.stringify(require('./package.json').version)
+})
+
 /*
 |--------------------------------------------------------------------------
 | Configure logging
