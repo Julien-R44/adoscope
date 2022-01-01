@@ -1,26 +1,28 @@
 <template>
-  <div class="flex-1 mt-1 adoscope-card-bg rounded-md shadow overflow-hidden">
-    <div class="text-3xl font-bold bg-primary">
-      <div class="py-4 px-6 text-white">{{ title }}</div>
+  <div>
+    <div class="flex-1 mt-1 adoscope-card-bg rounded-md shadow overflow-hidden">
+      <div class="text-3xl font-bold bg-primary">
+        <div class="py-4 px-6 text-white">{{ title }}</div>
+      </div>
+
+      <div
+        v-if="ready && entries.length === 0"
+        class="flex flex-col justify-center my-12 items-center"
+      >
+        <span class="iconify text-primary" data-icon="ion:telescope-sharp" data-width="100px"></span>
+        <span class="mt-2">No entries found ! Try again later.</span>
+      </div>
+
+      <table class="entries-table" v-if="ready && entries.length > 0">
+        <thead>
+          <slot name="table-header" />
+        </thead>
+
+        <tr v-for="entry in entries" :key="entry.id">
+          <slot name="table-row" :entry="entry" />
+        </tr>
+      </table>
     </div>
-
-    <div
-      v-if="ready && entries.length === 0"
-      class="flex flex-col justify-center mt-12 items-center"
-    >
-      <span class="iconify text-primary" data-icon="ion:telescope-sharp" data-width="100px"></span>
-      <span class="mt-2">No entries found ! Try again later.</span>
-    </div>
-
-    <table class="entries-table" v-if="ready && entries.length > 0">
-      <thead>
-        <slot name="table-header" />
-      </thead>
-
-      <tr v-for="entry in entries" :key="entry.id">
-        <slot name="table-row" :entry="entry" />
-      </tr>
-    </table>
   </div>
 </template>
 
@@ -48,24 +50,3 @@ Api.fetchEntries(props.entryType).then(fetchedEntries => {
   ready.value = true
 })
 </script>
-
-<style lang="postcss">
-.entries-table {
-  @apply w-full text-left text-sm;
-
-  th,
-  td {
-    padding: 0.75rem 1.25rem;
-    @apply border-t border-primary-100 dark:border-secondary;
-  }
-
-  tr {
-    @apply transition-colors;
-  }
-
-  th.table-fit,
-  td.table-fit {
-    @apply whitespace-nowrap w-1;
-  }
-}
-</style>

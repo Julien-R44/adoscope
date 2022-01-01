@@ -15,6 +15,32 @@
   }
 }
 
+.nav {
+  @apply flex space-x-4 bg-primary;
+  .nav-item {
+    @apply p-4;
+  }
+}
+
+.entries-table {
+  @apply w-full text-left text-sm;
+
+  th,
+  td {
+    padding: 0.75rem 1.25rem;
+    @apply border-t border-primary-100 dark:border-secondary;
+  }
+
+  tr {
+    @apply transition-colors;
+  }
+
+  th.table-fit,
+  td.table-fit {
+    @apply whitespace-nowrap w-1;
+  }
+}
+
 /**
  * Vue-Json-Pretty custom styles
  */
