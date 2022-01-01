@@ -32,6 +32,8 @@ export const logLevelClass = (level) => {
   if (level === 'critical') return 'danger'
   if (level === 'alert') return 'danger'
   if (level === 'emergency') return 'danger'
+
+  return 'secondary'
 }
 
 export const modelActionClass = (action) => {

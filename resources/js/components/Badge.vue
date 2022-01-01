@@ -5,6 +5,7 @@
     'bg-red-500': type === 'danger',
     'bg-blue-500': type === 'info',
     'bg-green-500': type === 'secondary',
+    'bg-indigo-500': type === 'success'
   }">
     <slot></slot>
   </div>
@@ -14,7 +15,7 @@
 defineProps({
   type: {
     type: String,
-    validator: value => ['info', 'danger', 'secondary', 'warning'].includes(value),
+    validator: value => ['info', 'danger', 'secondary', 'warning', 'success'].includes(value),
   }
 })
 </script>

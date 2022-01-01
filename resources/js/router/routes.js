@@ -98,4 +98,18 @@ export default [
     name: 'model-preview',
     component: () => import('../components/screens/models/ModelPreview.vue'),
   },
+
+  /**
+   * Logs
+   */
+  {
+    path: '/logs',
+    name: 'logs',
+    component: () => import('../components/screens/logs/LogsIndex.vue'),
+  },
+  {
+    path: '/logs/:id',
+    name: 'log-preview',
+    component: () => import('../components/screens/logs/LogPreview.vue'),
+  },
 ]

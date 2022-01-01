@@ -115,6 +115,18 @@ const ModelPropsFactory = (faker: Faker.FakerStatic) => ({
 })
 
 /**
+ * Generate Props for Log entry type
+ */
+const LogPropsFactory = (faker: Faker.FakerStatic) => ({
+  level: faker.random.arrayElement(['debug', 'info', 'warn', 'error']),
+  message: faker.lorem.words(),
+  context: {
+    [faker.lorem.word()]: faker.lorem.words(),
+    [faker.lorem.word()]: faker.lorem.words(),
+  },
+})
+
+/**
  * Default props for generic Entry
  */
 const DefaultContentPropsFactory = (type: EntryType, faker: Faker.FakerStatic) => ({
@@ -140,6 +152,7 @@ const getMatchingPropsFactory = (type: EntryType) => {
       [EntryType.REDIS]: RedisPropsFactory,
       [EntryType.EXCEPTION]: ExceptionPropsFactory,
       [EntryType.MODEL]: ModelPropsFactory,
+      [EntryType.LOG]: LogPropsFactory,
     }[type] || RequestPropsFactory
   )
 }

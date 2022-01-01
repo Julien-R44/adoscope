@@ -42,6 +42,6 @@ export const entriesTypes = [
   {
     icon: 'carbon:catalog',
     name: 'Logs',
-    // routeName: 'logs',
+    routeName: 'logs',
   },
 ]
