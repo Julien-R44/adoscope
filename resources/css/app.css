@@ -67,5 +67,5 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply bg-primary rounded-lg;
+	@apply bg-primary-200 dark:bg-primary-800 rounded-lg;
 }
