@@ -1,14 +1,12 @@
 <template>
   <div class="flex flex-col">
-    <router-link
-      v-for="entryType in entriesTypes"
-      :key="entryType.name"
-      :class="classesBindings(entryType)"
-      :to="{ name: entryType.routeName }"
-    >
-      <span class="iconify" :data-icon="entryType.icon" data-width="25"></span>
-      <span>{{ entryType.name }}</span>
-    </router-link>
+    <div v-for="item in items" :key="item.name">
+      <div v-if="item.separator === true" class="mb-6 mt-2"></div>
+      <router-link v-else :to="{ name: item.routeName }" :class="classesBindings(item)">
+        <span class="iconify" :data-icon="item.icon" data-width="25"></span>
+        <span>{{ item.name }}</span>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -17,7 +15,7 @@ import { computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 const props = defineProps({
-  entriesTypes: { type: Array }
+  items: { type: Array }
 })
 
 const route = useRoute()

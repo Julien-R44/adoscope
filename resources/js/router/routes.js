@@ -1,5 +1,9 @@
 export default [
-  { path: '/', redirect: '/requests' },
+  {
+    path: '/',
+    name: 'dashboard',
+    component: () => import('@/components/screens/dashboard/Dashboard.vue'),
+  },
 
   /**
    * Requests
