@@ -63,7 +63,7 @@
 
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { onUnmounted, reactive, ref } from 'vue'
 import { Api } from '@/services/Api'
 
 const props = defineProps({
@@ -142,5 +142,10 @@ const checkNewEntries = () => {
     })
   }, NEW_ENTRIES_TIMER)
 }
+
+
+onUnmounted(() => {
+  clearTimeout(newEntriesTimeout)
+})
 
 </script>
