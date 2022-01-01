@@ -13,15 +13,31 @@
         <span class="mt-2">No entries found ! Try again later.</span>
       </div>
 
-      <table class="entries-table" v-if="ready && entries.length > 0">
-        <thead>
-          <slot name="table-header" />
-        </thead>
+      <transition-group tag="tbody" class="block" name="list">
+        <table class="entries-table" v-if="ready && entries.length > 0">
+          <thead>
+            <slot name="table-header" />
+          </thead>
 
-        <tr v-for="entry in entries" :key="entry.id">
-          <slot name="table-row" :entry="entry" />
-        </tr>
-      </table>
+          <tr v-for="entry in entries" :key="entry.id">
+            <slot name="table-row" :entry="entry" />
+          </tr>
+
+          <tr v-if="hasMoreEntries" key="olderEntries">
+            <td colspan="100" class="text-center py-1">
+              <small>
+                <a
+                  href="#"
+                  v-on:click.prevent="loadOlderEntries"
+                  v-if="!loadingMoreEntries"
+                >Load Older Entries</a>
+              </small>
+
+              <small v-if="loadingMoreEntries">Loading...</small>
+            </td>
+          </tr>
+        </table>
+      </transition-group>
     </div>
   </div>
 </template>
@@ -42,11 +58,36 @@ const props = defineProps({
   },
 })
 
+const ENTRIES_PER_REQUEST = 50
+
 const entries = ref([])
 const ready = ref(false)
+const hasMoreEntries = ref(true)
+const loadingMoreEntries = ref(false)
+let lastEntryIndex = ''
 
-Api.fetchEntries(props.entryType).then(fetchedEntries => {
+
+const last = (array) => array[array.length - 1]
+
+const loadEntries = (cb) => {
+  Api.fetchEntries(props.entryType, ENTRIES_PER_REQUEST, lastEntryIndex).then(fetchedEntries => {
+    hasMoreEntries.value = fetchedEntries.length >= ENTRIES_PER_REQUEST
+    lastEntryIndex = fetchedEntries.length ? last(fetchedEntries).sequence_id : lastEntryIndex
+    cb(fetchedEntries)
+  })
+}
+
+loadEntries(fetchedEntries => {
   entries.value = fetchedEntries
   ready.value = true
 })
+
+
+const loadOlderEntries = () => {
+  loadingMoreEntries.value = true;
+  loadEntries((fetchedEntries) => {
+    entries.value.push(...fetchedEntries);
+    loadingMoreEntries.value = false;
+  });
+}
 </script>
