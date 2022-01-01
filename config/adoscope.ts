@@ -2,14 +2,14 @@ import { RouteMiddlewareHandler } from '@ioc:Adonis/Core/Route'
 import Env from '@ioc:Adonis/Core/Env'
 
 export interface AdoscopeConfig {
-  domain?: string
   path: string
   storage: {
     databaseConnection: string
   }
   enabled: boolean
-
   middlewares: RouteMiddlewareHandler[]
+
+  // TODO: Support theses properties when watchers are done
   onlyPaths: string[]
   ignorePaths: string[]
   ignoreCommands: string[]
