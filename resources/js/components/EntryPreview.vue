@@ -66,6 +66,34 @@
       </div>
     </div>
 
+    <div class="adoscope-card-bg rounded-md overflow-hidden shadow mt-5 text-white" v-if="ready /*&& entry && entry.content.user && entry.content.user.id*/">
+      <div class="text-xl font-bold bg-primary">
+        <div class="py-4 px-6 text-white">Authenticated User</div>
+      </div>
+
+      <table class="entries-table">
+        <tr>
+          <td class="table-fit font-weight-bold">ID</td>
+
+          <td>{{4}}</td>
+        </tr>
+
+        <tr v-if="/*entry.content.user.name*/true">
+          <td class="table-fit font-weight-bold align-middle">Name</td>
+
+          <td class="align-middle">
+            {{ 'Julien Ripouteau' }}
+          </td>
+        </tr>
+
+        <tr v-if="/*entry.content.user.email*/true">
+          <td class="table-fit font-weight-bold">Email Address</td>
+
+          <td>{{ 'julien@ripouteau.com' }}</td>
+        </tr>
+      </table>
+    </div>
+
     <slot v-if="ready && entry" name="after-attributes-card" :entry="entry"></slot>
   </div>
 </template>
