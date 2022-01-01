@@ -1,32 +1,11 @@
-import 'vue-json-pretty/lib/styles.css'
 import '../css/app.css'
+import '@/bootstrap/plugins'
 import { createApp } from 'vue'
+import { router } from '@/router/router'
 import App from '@/App.vue'
-import routes from '@/router/routes'
-import { createRouter, createWebHashHistory } from 'vue-router'
-
-if (
-  localStorage.theme === 'dark' ||
-  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-) {
-  document.documentElement.classList.add('dark')
-} else {
-  document.documentElement.classList.remove('dark')
-}
-
-const router = createRouter({
-  history: createWebHashHistory(),
-  routes,
-})
+import hljsVuePlugin from '@highlightjs/vue-plugin'
 
 const app = createApp(App)
 app.use(router)
-
-import hljs from 'highlight.js/lib/core'
-import sql from 'highlight.js/lib/languages/sql'
-import hljsVuePlugin from '@highlightjs/vue-plugin'
-
-hljs.registerLanguage('sql', sql)
 app.use(hljsVuePlugin)
-
 app.mount('#app')

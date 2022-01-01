@@ -49,6 +49,7 @@
     "sql-formatter": "^4.0.2",
     "uuid": "^8.3.2",
     "vue-json-pretty": "^2.0.6",
+    "vue-loader": "^16.7.0",
     "vue-router": "4"
   }
 }
