@@ -90,7 +90,7 @@
 import { ref } from 'vue';
 import EntryPreview from '@/components/EntryPreview.vue';
 import VueJsonPretty from 'vue-json-pretty'
-import RelatedEntries from '@/components/RelatedEntries.vue';
+import RelatedEntries from '@/components/related/RelatedEntries.vue';
 
 const currentTab = ref('payload');
 </script>
