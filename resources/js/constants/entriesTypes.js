@@ -32,7 +32,7 @@ export const entriesTypes = [
   {
     icon: 'carbon:layers',
     name: 'Models',
-    // routeName: 'models',
+    routeName: 'models',
   },
   {
     icon: 'carbon:debug',

@@ -84,4 +84,18 @@ export default [
     name: 'redis-preview',
     component: () => import('../components/screens/redis/RedisPreview.vue'),
   },
+
+  /**
+   * Models
+   */
+  {
+    path: '/models',
+    name: 'models',
+    component: () => import('../components/screens/models/ModelsIndex.vue'),
+  },
+  {
+    path: '/models/:id',
+    name: 'model-preview',
+    component: () => import('../components/screens/models/ModelPreview.vue'),
+  },
 ]

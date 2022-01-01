@@ -35,9 +35,9 @@ export const logLevelClass = (level) => {
 }
 
 export const modelActionClass = (action) => {
-  if (action === 'created') return 'success'
+  if (action === 'created') return 'secondary'
   if (action === 'updated') return 'info'
-  if (action === 'retrieved') return 'secondary'
+  if (action === 'retrieved') return 'warning'
   if (action === 'deleted' || action === 'forceDeleted') return 'danger'
 }
 
