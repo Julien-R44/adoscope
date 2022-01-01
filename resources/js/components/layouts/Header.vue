@@ -1,12 +1,12 @@
 <template>
   <header class="bg-primary shadow" layout-header>
     <div class="container mx-auto">
-      <div class="flex h-16 items-center justify-between">
+      <div class="flex items-center justify-between py-4">
         <div class="flex items-center space-between">
-          <Logo />
+          <Logo class="h-10" />
         </div>
 
-        <div class="flex items-center space-x-2">
+        <div class="flex items-center space-x-4">
           <span class="iconify text-white" data-icon="carbon:logo-github" data-width="25"></span>
 
           <div class="cursor-pointer" @click="changeDarkMode" v-show="darkMode == true">
