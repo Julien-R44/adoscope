@@ -27,7 +27,6 @@
     "tailwindcss": "^3.0.8",
     "typescript": "~4.5",
     "vue": "^3.2.14",
-    "vue-loader": "^16.7.0",
     "windicss-webpack-plugin": "^1.6.2",
     "youch": "^3.0.0",
     "youch-terminal": "^2.0.0"
@@ -50,7 +49,6 @@
     "sql-formatter": "^4.0.2",
     "uuid": "^8.3.2",
     "vue-json-pretty": "^2.0.6",
-    "vue-router": "4",
-    "windicss": "^3.4.2"
+    "vue-router": "4"
   }
 }
