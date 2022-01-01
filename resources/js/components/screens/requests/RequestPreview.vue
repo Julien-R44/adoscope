@@ -1,5 +1,5 @@
 <template>
-  <EntryPreview title="Request Details" entry-type="request" :id="$route.params.id">
+  <EntryPreview title="Request Details" entry-type="request" :id="$route.params.id" :entry-point="true">
     <template #table-parameters="{ entry }">
       <tr>
         <td class="table-fit font-weight-bold">Method</td>

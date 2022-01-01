@@ -1,5 +1,5 @@
 <template>
-  <EntryTypeIndex title="Requests" entry-type="request">
+  <EntryTypeIndex title="Requests" entry-type="request" :entry-point="true">
     <template #table-header>
       <th scope="col">Verb</th>
       <th scope="col">Path</th>

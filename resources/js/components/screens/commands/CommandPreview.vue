@@ -1,5 +1,5 @@
 <template>
-  <EntryPreview title="Command Details" entry-type="command" :id="$route.params.id">
+  <EntryPreview title="Command Details" entry-type="command" :id="$route.params.id" :entry-point="true">
     <template #table-parameters="{ entry }">
       <tr>
         <td class="table-fit font-weight-bold">Command</td>

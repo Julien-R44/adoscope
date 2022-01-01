@@ -18,48 +18,26 @@
           </tr>
 
           <slot name="table-parameters" :entry="entry"></slot>
-          <!--
-          <tr v-if="!entryPoint && job">
-            <td class="table-fit font-weight-bold">Job</td>
-            <td>
-              <router-link
-                :to="{ name: 'job-preview', params: { id: job.id } }"
-                class="control-action"
-              >View Job</router-link>
-            </td>
-          </tr>-->
 
-          <!-- <tr v-if="!entryPoint && request">
+          <tr v-if="!entryPoint && entryRequest">
             <td class="table-fit font-weight-bold">Request</td>
             <td>
               <router-link
-                :to="{ name: 'request-preview', params: { id: request.id } }"
+                :to="{ name: 'request-preview', params: { id: entryRequest.id } }"
                 class="control-action"
-              >View Request</router-link>
+              >View Entry Request</router-link>
             </td>
-          </tr>-->
+          </tr>
 
-          <!-- <tr v-if="!entryPoint && command">
+          <tr v-if="!entryPoint && !entryRequest && entryCommand">
             <td class="table-fit font-weight-bold">Command</td>
             <td>
               <router-link
-                :to="{ name: 'command-preview', params: { id: command.id } }"
+                :to="{ name: 'command-preview', params: { id: entryCommand.id } }"
                 class="control-action"
-              >View Command</router-link>
+              >View Entry Command</router-link>
             </td>
-          </tr>-->
-
-          <!-- <tr v-if="entry.tags.length">
-            <td class="table-fit font-weight-bold">Tags</td>
-            <td>
-              <router-link
-                v-for="tag in entry.tags"
-                :key="tag"
-                :to="{ name: resource, query: { tag: tag } }"
-                class="badge badge-info mr-1 font-weight-light"
-              >{{ tag }}</router-link>
-            </td>
-          </tr>-->
+          </tr>
         </tbody>
       </table>
     </div>
@@ -111,15 +89,25 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  entryPoint: {
+    type: Boolean,
+    default: false,
+  }
 })
 
 const ready = ref(false)
 const entry = ref({})
 const batch = ref({})
+const entryRequest = ref(null)
+const entryCommand = ref(null)
 
 Api.fetchEntry(props.id).then(response => {
   entry.value = response.entry
   batch.value = response.batch
+
+  entryRequest.value = batch.value.find(batchEntry => batchEntry.type === 'request')
+  entryCommand.value = batch.value.find(batchEntry => batchEntry.type === 'command')
+
   ready.value = true
 })
 
