@@ -112,4 +112,18 @@ export default [
     name: 'log-preview',
     component: () => import('../components/screens/logs/LogPreview.vue'),
   },
+
+  /**
+   * Exceptions
+   */
+  {
+    path: '/exceptions',
+    name: 'exceptions',
+    component: () => import('../components/screens/exceptions/ExceptionsIndex.vue'),
+  },
+  {
+    path: '/exceptions/:id',
+    name: 'exception-preview',
+    component: () => import('../components/screens/exceptions/ExceptionPreview.vue'),
+  },
 ]

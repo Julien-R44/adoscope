@@ -2,11 +2,13 @@
   <div class="font-sans text-base antialiased bg-gray-50 dark:bg-secondary-900 dark:text-white">
     <Header />
 
-    <div class="min-h-shell my-8">
+    <div class="min-h-shell">
       <div class="container mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-[18em,1fr] gap-16">
-          <EntriesTypeNav :entriesTypes="entriesTypes" />
-          <router-view v-slot="{ Component }">
+          <div class="relative">
+            <EntriesTypeNav :entriesTypes="entriesTypes" class="sticky top-0 pt-8" />
+          </div>
+          <router-view v-slot="{ Component }" class="mt-8">
             <transition name="fade" mode="out-in">
               <component :is="Component" />
             </transition>

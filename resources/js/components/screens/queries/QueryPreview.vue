@@ -6,14 +6,14 @@
         <td>{{ entry.content.connection }}</td>
       </tr>
 
-      <tr>
+      <!-- <tr>
         <td class="table-fit font-weight-bold">Location</td>
         <td>{{ entry.content.location }}</td>
-      </tr>
+      </tr> -->
 
       <tr>
         <td class="table-fit font-weight-bold">Duration</td>
-        <td>{{ entry.content.time }}</td>
+        <td>{{ entry.content.time }}ms</td>
       </tr>
     </template>
 

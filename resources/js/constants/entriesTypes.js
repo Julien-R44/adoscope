@@ -37,7 +37,7 @@ export const entriesTypes = [
   {
     icon: 'carbon:debug',
     name: 'Exceptions',
-    // routeName: 'exceptions',
+    routeName: 'exceptions',
   },
   {
     icon: 'carbon:catalog',
