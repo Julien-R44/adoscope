@@ -14,7 +14,7 @@
 </div>
 
 ## 🚧 Warning: WORK-IN-PROGRESS
-This package is **under development** and not ready to use. I'm currently working with the core team to bring this project to life. Most of the work has been done on Adoscope, the front-end of the application is ready, models too, we only need to develop the watchers that will retrieve the real events from Adonis. 
+This package is **under development** and not ready to use. I'm currently working with the core team to bring this project to life ( See [current RFC](https://github.com/adonisjs/rfcs/pull/43) ) . Most of the work has been done on Adoscope, the front-end of the application is ready, models too, we only need to develop the watchers that will retrieve the real events from Adonis. 
 
 **Currently only fake data are seeded**, and the application is currently not a package. It is a complete Adonis application but the whole thing will be exported in a package once the watchers are implemented.
 
