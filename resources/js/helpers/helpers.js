@@ -66,3 +66,19 @@ export const timeAgo = (date) => {
 export const localTime = (date) => {
   return new Date(date).toLocaleString()
 }
+
+export const formatMilliseconds = (ms) => {
+  const seconds = Math.floor(ms / 1000)
+  const minutes = Math.floor(seconds / 60)
+  const milliseconds = ms % 1000
+
+  if (minutes > 0) {
+    return `${minutes}m ${seconds % 60}s`
+  }
+
+  if (seconds > 0) {
+    return `${seconds}.${milliseconds.toString().substring(0, 2)}s`
+  }
+
+  return `${milliseconds}ms`
+}

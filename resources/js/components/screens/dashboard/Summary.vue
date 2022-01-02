@@ -8,56 +8,56 @@
       <div
         class="flex flex-col items-center py-8 dark:border-secondary border-primary-100 space-y-2 border-b border-r"
       >
-        <span class="font-bold text-4xl text-green-500">{{ millify(165412) }}</span>
+        <span class="font-bold text-4xl text-green-500">{{ millify(nbRequests) }}</span>
         <span>Requests 🚀</span>
       </div>
 
       <div
         class="flex flex-col items-center py-8 dark:border-secondary border-primary-100 space-y-2 border-b border-r"
       >
-        <span class="font-bold text-4xl text-green-500">{{ millify(1241) }}</span>
+        <span class="font-bold text-4xl text-green-500">{{ millify(nbQueries) }}</span>
         <span>SQL queries 🗄️</span>
       </div>
 
       <div
         class="flex flex-col items-center py-8 dark:border-secondary border-primary-100 space-y-2 border-b border-r"
       >
-        <span class="font-bold text-4xl text-red-500">25</span>
+        <span class="font-bold text-4xl text-red-500">{{ nbExceptions }}</span>
         <span>Exceptions 🐛</span>
       </div>
 
       <div
         class="flex flex-col items-center py-8 dark:border-secondary border-primary-100 space-y-2 border-b"
       >
-        <span class="font-bold text-4xl text-green-500">1.2s</span>
+        <span class="font-bold text-4xl text-green-500">{{ avgRequestTime }}</span>
         <span>Avg. request time ⚡</span>
       </div>
 
       <div
         class="flex flex-col items-center py-8 dark:border-secondary border-primary-100 space-y-2 border-r"
       >
-        <span class="font-bold text-4xl text-green-500">524ms</span>
+        <span class="font-bold text-4xl text-green-500">{{ avgQueryTime }}</span>
         <span>Avg. query time 🔥</span>
       </div>
 
       <div
         class="flex flex-col items-center py-8 dark:border-secondary border-primary-100 space-y-2 border-r"
       >
-        <span class="font-bold text-4xl text-green-500">78</span>
+        <span class="font-bold text-4xl text-green-500">{{ nbMails }}</span>
         <span>Mails 📨</span>
       </div>
 
       <div
         class="flex flex-col items-center py-8 dark:border-secondary border-primary-100 space-y-2 border-r"
       >
-        <span class="font-bold text-4xl text-green-500">487</span>
+        <span class="font-bold text-4xl text-green-500">{{ nbRedis }}</span>
         <span>Redis commands 💾</span>
       </div>
 
       <div
         class="flex flex-col items-center py-8 dark:border-secondary border-primary-100 space-y-2"
       >
-        <span class="font-bold text-4xl text-green-500">{{ millify(12465) }}</span>
+        <span class="font-bold text-4xl text-green-500">{{ millify(nbEvents) }}</span>
         <span>Events 🙌</span>
       </div>
     </div>
@@ -66,4 +66,25 @@
 
 <script setup>
 import { millify } from 'millify'
+import { computed } from 'vue';
+import { formatMilliseconds } from '@/helpers/helpers'
+
+const { statistics: stats } = defineProps({
+  statistics: {
+    type: Object,
+    default: null,
+  },
+})
+
+const getCount = (type) => stats?.counts.find(({ type: t }) => t === type).count
+
+const nbRequests = computed(() => getCount('request'))
+const nbExceptions = computed(() => getCount('exception'))
+const nbQueries = computed(() => getCount('query'))
+const nbEvents = computed(() => getCount('event'))
+const nbMails = computed(() => getCount('mail'))
+const nbRedis = computed(() => getCount('redis'))
+const avgRequestTime = computed(() => formatMilliseconds(parseInt(stats.avgRequestTime)))
+const avgQueryTime = computed(() => formatMilliseconds(parseInt(stats.avgQueryTime)))
+
 </script>

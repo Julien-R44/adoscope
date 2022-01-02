@@ -19,4 +19,11 @@ export const Api = {
   fetchEntry(id) {
     return fetch(`${this.basePath}/telescope-api/entries/${id}`).then((response) => response.json())
   },
+
+  /**
+   * Fetch dashboard statistics
+   */
+  fetchStatistics() {
+    return fetch(`${this.basePath}/telescope-api/statistics`).then((response) => response.json())
+  },
 }

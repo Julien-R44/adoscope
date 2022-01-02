@@ -11,46 +11,16 @@
           <thead>
             <th>Verb</th>
             <th>Path</th>
-            <th>Avg.</th>
+            <!-- TODO: Replace by avg -->
+            <th>Duration</th>
           </thead>
 
-          <tr>
+          <tr v-for="entry in statistics.slowestEndpoints" :key="entry.id">
             <td class="table-fit">
-              <Badge :type="requestMethodClass('GET')">GET</Badge>
+              <Badge :type="requestMethodClass(entry.content.method)">{{ entry.content.method }}</Badge>
             </td>
-            <td>/getQueries</td>
-            <td class="table-fit">1.2s</td>
-          </tr>
-
-          <tr>
-            <td class="table-fit">
-              <Badge :type="requestMethodClass('DELETE')">DELETE</Badge>
-            </td>
-            <td>/blablaBla</td>
-            <td class="table-fit">1.15s</td>
-          </tr>
-
-          <tr>
-            <td class="table-fit">
-              <Badge :type="requestMethodClass('GET')">GET</Badge>
-            </td>
-            <td>/getQueries</td>
-            <td class="table-fit">0.8s</td>
-          </tr>
-
-          <tr>
-            <td class="table-fit">
-              <Badge :type="requestMethodClass('POST')">POST</Badge>
-            </td>
-            <td>/postQueries</td>
-            <td class="table-fit">0.7s</td>
-          </tr>
-          <tr>
-            <td class="table-fit">
-              <Badge :type="requestMethodClass('PUT')">PUT</Badge>
-            </td>
-            <td>/post</td>
-            <td class="table-fit">0.4s</td>
+            <td>{{ entry.content.uri }}</td>
+            <td class="table-fit">{{ formatMilliseconds(entry.content.duration) }}</td>
           </tr>
         </table>
       </div>
@@ -65,53 +35,18 @@
             <th></th>
           </thead>
 
-          <tr>
+          <tr v-for="entry in statistics.lastEndpointsError">
             <td class="table-fit">
-              <Badge :type="requestMethodClass('GET')">GET</Badge>
+              <Badge :type="requestMethodClass(entry.content.method)">{{ entry.content.method }}</Badge>
             </td>
-            <td>/getQueries</td>
+            <td>{{ entry.content.uri }}</td>
             <td class="table-fit">
-              <Badge :type="requestStatusClass('500')">{{ '500' }}</Badge>
-            </td>
-            <td class="table-fit">
-              <router-link :to="{ name: 'request-preview', params: { id: 1 } }">
-                <span
-                  class="iconify hover:text-primary cursor-pointer"
-                  data-icon="ant-design:eye-outlined"
-                  data-width="25"
-                ></span>
-              </router-link>
-            </td>
-          </tr>
-
-          <tr>
-            <td class="table-fit">
-              <Badge :type="requestMethodClass('GET')">GET</Badge>
-            </td>
-            <td>/getQueries</td>
-            <td class="table-fit">
-              <Badge :type="requestStatusClass('401')">{{ '401' }}</Badge>
+              <Badge
+                :type="requestStatusClass(entry.content.response_status)"
+              >{{ entry.content.response_status }}</Badge>
             </td>
             <td class="table-fit">
-              <router-link :to="{ name: 'request-preview', params: { id: 1 } }">
-                <span
-                  class="iconify hover:text-primary cursor-pointer"
-                  data-icon="ant-design:eye-outlined"
-                  data-width="25"
-                ></span>
-              </router-link>
-            </td>
-          </tr>
-          <tr>
-            <td class="table-fit">
-              <Badge :type="requestMethodClass('GET')">GET</Badge>
-            </td>
-            <td>/getQueries</td>
-            <td class="table-fit">
-              <Badge :type="requestStatusClass('422')">{{ '422' }}</Badge>
-            </td>
-            <td class="table-fit">
-              <router-link :to="{ name: 'request-preview', params: { id: 1 } }">
+              <router-link :to="{ name: 'request-preview', params: { id: entry.id } }">
                 <span
                   class="iconify hover:text-primary cursor-pointer"
                   data-icon="ant-design:eye-outlined"
@@ -130,4 +65,14 @@
 import EntryTypeIndex from '@/components/EntryTypeIndex.vue';
 import { requestStatusClass, requestMethodClass, timeAgo } from '@/helpers/helpers';
 import Badge from '@/components/Badge.vue';
+import { formatMilliseconds } from '@/helpers/helpers'
+
+defineProps({
+  statistics: {
+    type: Object,
+    default: null,
+  },
+})
+
+
 </script>
