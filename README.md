@@ -34,9 +34,9 @@ Adoscope is basically a Laravel Telescope clone. Adoscope provides insight into 
 After installing Adoscope, you will find the main configuration file in `app/adoscope.ts`. Each of the configuration options has a description of its purpose.
 
 ### Data Pruning
-Without pruning, the telescope_entries table can accumulate records very quickly. To mitigate this, you should schedule the `adoscope:prune` Ace command to run daily. Since AdonisJS does not (yet?) have a built-in Scheduler, you can do this by using a simple cronjob, or using [adonis5-scheduler](https://github.com/reg2005/adonis5-scheduler).
+Without pruning, the `adoscope_entries` table can accumulate records very quickly. To mitigate this, you should schedule the `adoscope:prune` Ace command to run daily. Since AdonisJS does not (yet?) have a built-in Scheduler, you can do this by using a simple cronjob, or using [adonis5-scheduler](https://github.com/reg2005/adonis5-scheduler).
 
-By default, all entries older than 24 hours will be pruned. You may use the `hours` option when calling the command to determine how long to retain Telescope data. For example, the following command will delete all records created over 48 hours ago:
+By default, all entries older than 24 hours will be pruned. You may use the `hours` option when calling the command to determine how long to retain Adoscope data. For example, the following command will delete all records created over 48 hours ago:
 ```
 node ace adoscope:prune --hours=48
 ```
