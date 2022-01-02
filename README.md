@@ -14,12 +14,12 @@
 </div>
 
 ## 🚧 Warning: WORK-IN-PROGRESS
-This package is **under development** and not ready to use. I'm currently working with the core team to bring this project to life. Most of the work has been done on Adoscope, the front-end of the application is ready, models too, we only need to develop the watchers that will retrieve the real events from Adonis. 
+This package is **under development** and not ready to use. I'm currently working with the core team to bring this project to life ( See [current RFC](https://github.com/adonisjs/rfcs/pull/43) ) . Most of the work has been done on Adoscope, the front-end of the application is ready, models too, we only need to develop the watchers that will retrieve the real events from Adonis. 
 
 **Currently only fake data are seeded**, and the application is currently not a package. It is a complete Adonis application but the whole thing will be exported in a package once the watchers are implemented.
 
 # Introduction
-Adoscope is an elegant debug assistant for the AdonisJS framework. Adoscope provides insight into the requests coming into your application, exceptions, log entries, database queries, mails, notifications, redis operations, and more. Adoscope makes a wonderful companion to your local Adonis development environment.
+Adoscope is basically a Laravel Telescope clone. Adoscope provides insight into the requests coming into your application, exceptions, log entries, database queries, mails, notifications, redis operations, and more. Adoscope makes a wonderful companion to your Adonis development environment.
 
 ![](https://i.imgur.com/tfqgKQJ.png)
 
@@ -34,9 +34,9 @@ Adoscope is an elegant debug assistant for the AdonisJS framework. Adoscope prov
 After installing Adoscope, you will find the main configuration file in `app/adoscope.ts`. Each of the configuration options has a description of its purpose.
 
 ### Data Pruning
-Without pruning, the telescope_entries table can accumulate records very quickly. To mitigate this, you should schedule the `adoscope:prune` Ace command to run daily. Since AdonisJS does not (yet?) have a built-in Scheduler, you can do this by using a simple cronjob, or using [adonis5-scheduler](https://github.com/reg2005/adonis5-scheduler).
+Without pruning, the `adoscope_entries` table can accumulate records very quickly. To mitigate this, you should schedule the `adoscope:prune` Ace command to run daily. Since AdonisJS does not (yet?) have a built-in Scheduler, you can do this by using a simple cronjob, or using [adonis5-scheduler](https://github.com/reg2005/adonis5-scheduler).
 
-By default, all entries older than 24 hours will be pruned. You may use the `hours` option when calling the command to determine how long to retain Telescope data. For example, the following command will delete all records created over 48 hours ago:
+By default, all entries older than 24 hours will be pruned. You may use the `hours` option when calling the command to determine how long to retain Adoscope data. For example, the following command will delete all records created over 48 hours ago:
 ```
 node ace adoscope:prune --hours=48
 ```
