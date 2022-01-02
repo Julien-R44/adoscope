@@ -45,6 +45,17 @@ services:
     networks:
       - sail
 
+  db-test:
+    image: 'postgres:13'
+    container_name: db-test
+    ports:
+      - '5433:5432'
+    environment:
+      PGPASSWORD: '${PG_PASSWORD:-secret}'
+      POSTGRES_DB: 'testing'
+      POSTGRES_USER: '${PG_USER?:err}'
+      POSTGRES_PASSWORD: '${PG_PASSWORD:-secret}'
+
 networks:
   sail:
     driver: bridge
