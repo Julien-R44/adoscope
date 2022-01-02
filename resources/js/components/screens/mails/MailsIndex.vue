@@ -1,15 +1,17 @@
 <template>
   <EntryTypeIndex title="Mails" entry-type="mail">
     <template #table-header>
-      <th scope="col">Name</th>
-      <th scope="col">Listeners</th>
+      <th scope="col">Subject</th>
+      <th scope="col">To</th>
+      <th scope="col">Recipients</th>
       <th scope="col">Happened</th>
       <th scope="col"></th>
     </template>
 
     <template #table-row="{ entry }">
-      <td class="pr-0 pl-6">{{ entry.content.name }}</td>
-      <td class="table-fit">{{ entry.content.listeners_count }}</td>
+      <td class="pr-0 pl-6">{{ entry.content.subject }}</td>
+      <td class="table-fit">{{ entry.content.to.map(x => x.address).join(', ') }}</td>
+      <td class="table-fit">{{ entry.content.to.length }}</td>
       <td class="table-fit" :title="entry.created_at">{{ timeAgo(entry.created_at) }}</td>
 
       <td class="table-fit">
