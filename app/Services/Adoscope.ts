@@ -3,6 +3,8 @@ import { MailWatcher } from 'App/Watchers/MailWatcher'
 import { AdoscopeConfig } from 'Config/adoscope'
 
 export class Adoscope {
+  private static config: AdoscopeConfig
+
   /**
    * Enable Adoscope
    */
@@ -11,7 +13,16 @@ export class Adoscope {
       return
     }
 
+    this.config = config
     this.registerWatchers()
+  }
+
+  /**
+   * Disable Adoscope
+   */
+
+  public static stop() {
+    this.unregisterWatchers()
   }
 
   /**
@@ -21,5 +32,14 @@ export class Adoscope {
     const watchers = [MailWatcher, EventWatcher]
 
     watchers.forEach((Watcher) => new Watcher().register())
+  }
+
+  /**
+   * Unregister watchers
+   */
+  private static unregisterWatchers() {
+    const watchers = [MailWatcher, EventWatcher]
+
+    watchers.forEach((Watcher) => new Watcher().unregister())
   }
 }

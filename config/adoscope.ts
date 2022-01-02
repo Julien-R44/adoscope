@@ -14,7 +14,7 @@ export interface AdoscopeConfig {
   ignorePaths: string[]
   ignoreCommands: string[]
 
-  // TODO: Add support for enabling specific watchers
+  // watchers: any
 }
 
 const adoscope: AdoscopeConfig = {
@@ -28,7 +28,7 @@ const adoscope: AdoscopeConfig = {
   | affect the paths of its internal API that aren't exposed to users.
   |
   */
-  path: Env.get('ADOSCOPE_PATH', 'telescope'),
+  path: Env.get('ADOSCOPE_PATH', 'adoscope'),
 
   /*
   |--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ const adoscope: AdoscopeConfig = {
   |--------------------------------------------------------------------------
   |
   | The following array lists the URI paths and Artisan commands that will
-  | not be watched by Telescope. In addition to this list, some Laravel
+  | not be watched by Adoscope. In addition to this list, some Adonis
   | commands, like migrations and queue commands, are always ignored.
   |
   */
@@ -82,13 +82,30 @@ const adoscope: AdoscopeConfig = {
   ],
 
   ignorePaths: [
-    'telescope*',
+    'adoscope*',
     //
   ],
 
   ignoreCommands: [
     //
   ],
+
+  // /*
+  // |--------------------------------------------------------------------------
+  // | Adoscope Watchers
+  // |--------------------------------------------------------------------------
+  // |
+  // | The following array lists the "watchers" that will be registered with
+  // | Adoscope. The watchers gather the application's profile data when
+  // | a request or task is executed. Feel free to customize this list.
+  // |
+  // */
+
+  // watchers: [
+  //   () => import('App/Watchers/MailWatcher'),
+  //   () => import('App/Watchers/EventWatcher'),
+  //   //
+  // ],
 }
 
 export default adoscope
