@@ -1,4 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { Statistics } from 'App/Services/Statistics'
 import Entry from 'App/Models/Entry'
 
 export default class EntriesController {
@@ -19,5 +20,9 @@ export default class EntriesController {
         .where('batch_id', '=', entry.batchId)
         .andWhere('id', '!=', entry.id),
     }
+  }
+
+  public async getStatistics({}: HttpContextContract) {
+    return Statistics.getDashboardStatistics()
   }
 }

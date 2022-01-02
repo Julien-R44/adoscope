@@ -9,3 +9,4 @@ Route.get(adoscopeConfig.path, ({ view }) => {
 }).middleware(adoscopeConfig.middlewares)
 Route.get('/telescope-api/entries', 'EntriesController.index')
 Route.get('/telescope-api/entries/:id', 'EntriesController.show')
+Route.get('/telescope-api/statistics', 'EntriesController.getStatistics')
