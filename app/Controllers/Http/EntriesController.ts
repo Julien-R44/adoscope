@@ -3,6 +3,9 @@ import { Statistics } from 'App/Services/Statistics'
 import Entry from 'App/Models/Entry'
 
 export default class EntriesController {
+  /**
+   * Fetch at most 50 entries from the database
+   */
   public async index({ request }: HttpContextContract) {
     const qs = request.qs()
     return Entry.query()
@@ -12,6 +15,9 @@ export default class EntriesController {
       .orderBy('sequence_id', 'desc')
   }
 
+  /**
+   * Fetch an entry by its id with the related entries ( batch )
+   */
   public async show({ params }: HttpContextContract) {
     const entry = await Entry.findOrFail(params.id)
     return {
@@ -22,6 +28,9 @@ export default class EntriesController {
     }
   }
 
+  /**
+   * Return statistics about the entries to display on the dashboard
+   */
   public async getStatistics({}: HttpContextContract) {
     return Statistics.getDashboardStatistics()
   }
