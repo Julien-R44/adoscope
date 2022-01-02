@@ -34,6 +34,7 @@
   "dependencies": {
     "@adonisjs/core": "^5.4.2",
     "@adonisjs/lucid": "^16.3.2",
+    "@adonisjs/mail": "^7.2.4",
     "@adonisjs/repl": "^3.1.7",
     "@adonisjs/session": "^6.1.2",
     "@adonisjs/shield": "^7.0.7",
