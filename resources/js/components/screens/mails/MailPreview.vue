@@ -31,7 +31,7 @@
         <td>{{ formatAddresses(entry.content.bcc) }}</td>
       </tr>
 
-      <tr v-if="entry.content.rejected">
+      <tr v-if="entry.content.rejected.length">
         <td class="table-fit font-weight-bold">Rejected Emails</td>
         <td>{{ formatAddresses(entry.content.rejected) }}</td>
       </tr>

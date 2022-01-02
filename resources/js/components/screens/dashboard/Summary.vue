@@ -76,7 +76,7 @@ const { statistics: stats } = defineProps({
   },
 })
 
-const getCount = (type) => stats?.counts.find(({ type: t }) => t === type).count
+const getCount = (type) => stats?.counts.find(({ type: t }) => t === type)?.count || 0
 
 const nbRequests = computed(() => getCount('request'))
 const nbExceptions = computed(() => getCount('exception'))
